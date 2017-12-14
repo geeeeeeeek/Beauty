@@ -1,0 +1,50 @@
+{
+  "pages":[
+    "pages/dispatch/dispatch",
+    "pages/index/index",
+    "pages/meirongshi/meirongshi",
+    "pages/order/orderAddress",
+    "pages/order/orderProducts",
+    "pages/product/product",
+    "pages/my/my",
+    "pages/myYuyue/myYuyue",
+    "pages/myAddress/myAddress"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#f63440", 
+    "navigationBarTitleText": "丽人服务预约",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#afaeae",
+    "selectedColor": "#f00",
+    "borderStyle": "black",
+    "backgroundColor": "#f0f0f0",
+    "list": [{
+        "pagePath": "pages/dispatch/dispatch",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_selected.png",
+        "text": "派单"
+    },
+    {
+      "pagePath": "pages/index/index",
+      "iconPath": "images/index.png", 
+      "selectedIconPath": "images/index_selected.png",
+      "text": "index"
+    }, 
+    {
+      "pagePath": "pages/index/index",
+      "iconPath": "images/icon_beauty.png",
+      "selectedIconPath": "images/icon_beauty.png",
+      "text": "美容师"
+    },
+    {
+      "pagePath": "pages/my/my",
+      "iconPath": "images/me.png", 
+      "selectedIconPath": "images/me_selected.png",
+      "text": "我的"
+    }]
+  },
+  "debug":false
+}
