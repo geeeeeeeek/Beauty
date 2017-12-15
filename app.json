@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/dispatch/dispatch",
+    "pages/demand/demand",
     "pages/index/index",
-    "pages/meirongshi/meirongshi",
+    "pages/employee/employee",
     "pages/order/orderAddress",
     "pages/order/orderProducts",
     "pages/product/product",
@@ -22,16 +22,16 @@
     "borderStyle": "black",
     "backgroundColor": "#f0f0f0",
     "list": [{
-        "pagePath": "pages/dispatch/dispatch",
+        "pagePath": "pages/demand/demand",
         "iconPath": "images/index.png",
         "selectedIconPath": "images/index_selected.png",
-        "text": "派单"
+        "text": "接单"
     },
     {
-      "pagePath": "pages/index/index",
+      "pagePath": "pages/employee/employee",
       "iconPath": "images/index.png", 
       "selectedIconPath": "images/index_selected.png",
-      "text": "index"
+      "text": "美容师"
     }, 
     {
       "pagePath": "pages/index/index",
