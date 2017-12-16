@@ -1,0 +1,64 @@
+<view class="page">
+
+  <view class="page-header">
+    <view class="header-wrap-avatar cc">
+      <image class="header-avatar" src="http://p3.pstatp.com/origin/40330002390297c1a730"></image>
+    </view>
+    <view class="cc">
+      <text class="header-name">静静</text>
+    </view>
+    <view class="header-wrap-remark">
+      <view class="header-remark-item cc">
+        <text>10</text>
+        <text>好评</text>
+      </view>
+      <view class="header-remark-item cc">
+        <text>10</text>
+        <text>作品</text>
+      </view>
+      <view class="header-remark-item cc">
+        <text>10</text>
+        <text>获赞</text>
+      </view> 
+    </view>
+  </view>
+
+  <view class="page-content">
+    <view class="content-item cc">
+      <view class="tag-p ">技能擅长</view>
+      <view>
+      <view class="tag-m ">美甲</view>
+      <view class="tag-m ">美眉</view>
+      <view class="tag-m ">脸部按摩</view>
+      </view>
+    </view>
+    <view class="content-item cc">
+      <view class="tag-p ">技师寄语</view>
+      <view class="ee-intro">大家好，哈哈哈</view>
+    </view>
+    <view class="content-item cc">
+      <view class="tag-p">作品展示</view>
+      <view class="list">
+        <view class="list-item">
+          <image mode="aspectFill" src="http://p3.pstatp.com/origin/40330002390297c1a730"></image>
+        </view> 
+        <view class="list-item">
+          <image mode="aspectFill" src="http://p3.pstatp.com/origin/40330002390297c1a730"></image>
+        </view> 
+        <view class="list-item">
+          <image mode="aspectFill" src="http://p3.pstatp.com/origin/40330002390297c1a730"></image>
+        </view> 
+      </view>
+    </view>
+  </view>
+
+
+  <view class="float-view">
+    <view class="float-view-yuyue cc">预约</view>
+    <view class="float-view-remark cc">投诉</view>
+    <view class="float-view-like cc">
+      <image class="float-view-like-icon" src="../../images/icon_like.png"></image>
+    </view>
+  </view>
+
+</view>

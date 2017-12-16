@@ -1,50 +1,53 @@
 {
   "pages":[
+    "pages/demandEdit/demandEdit",
+    "pages/employee/employee",
+    "pages/eeDetail/eeDetail",
+    "pages/my/my",    
     "pages/demand/demand",
     "pages/index/index",
-    "pages/employee/employee",
     "pages/order/orderAddress",
     "pages/order/orderProducts",
     "pages/product/product",
-    "pages/my/my",
     "pages/myYuyue/myYuyue",
     "pages/myAddress/myAddress"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#f63440", 
+    "navigationBarBackgroundColor": "#b39ddb", 
     "navigationBarTitleText": "丽人服务预约",
     "navigationBarTextStyle":"white"
   },
   "tabBar": {
-    "color": "#afaeae",
-    "selectedColor": "#f00",
+    "color": "#616161",
+    "selectedColor": "#ce93d8",
     "borderStyle": "black",
     "backgroundColor": "#f0f0f0",
-    "list": [{
+    "list": [
+      {
+        "pagePath": "pages/employee/employee",
+        "iconPath": "images/icon_beauty.png",
+        "selectedIconPath": "images/icon_beauty_selected.png",
+        "text": "美容师"
+      },
+      {
         "pagePath": "pages/demand/demand",
-        "iconPath": "images/index.png",
-        "selectedIconPath": "images/index_selected.png",
+        "iconPath": "images/icon_demand.png",
+        "selectedIconPath": "images/icon_demand_selected.png",
         "text": "接单"
-    },
-    {
-      "pagePath": "pages/employee/employee",
-      "iconPath": "images/index.png", 
-      "selectedIconPath": "images/index_selected.png",
-      "text": "美容师"
-    }, 
-    {
-      "pagePath": "pages/index/index",
-      "iconPath": "images/icon_beauty.png",
-      "selectedIconPath": "images/icon_beauty.png",
-      "text": "美容师"
-    },
-    {
-      "pagePath": "pages/my/my",
-      "iconPath": "images/me.png", 
-      "selectedIconPath": "images/me_selected.png",
-      "text": "我的"
-    }]
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon_beauty.png",
+        "selectedIconPath": "images/icon_beauty.png",
+        "text": "美容师"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/icon_my.png", 
+        "selectedIconPath": "images/icon_my_selected.png",
+        "text": "我的"
+      }]
   },
   "debug":false
 }

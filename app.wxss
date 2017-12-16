@@ -27,3 +27,24 @@ page{
 .fw-600{font-weight: 600;}
 .fw-700{font-weight: 700;}
 .fw-900{font-weight: 900;}
+
+/**主题颜色**/
+.theme-bg-color{
+  background-color: #ff0000;
+}
+
+.theme-btn-color{
+  background-color: #b39ddb;
+}
+
+.tag-main{
+  background-color: #b39ddb;  
+  color: #ffffff;
+  font-size: 12px;
+  height: 44rpx; 
+  border-radius: 22rpx;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+  display: inline-flex; 
+  align-items: center;
+}

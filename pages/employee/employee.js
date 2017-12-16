@@ -31,12 +31,16 @@ Page({
         })
     },
 
+    //单条点击
+    itemClick: function (e) {
+      var ds = e.currentTarget.dataset;
+      wx.navigateTo({
+        url: '../eeDetail/eeDetail'
+      })
+    },
+
     //去预约页面
-    yyClick(e){
-        var ds = e.currentTarget.dataset;
-        var isFrom="staff";
-        wx.navigateTo({
-          url: '../order/orderAddress?id='+ds.id+'&isFrom='+isFrom
-        })
+    yyClick(e){ 
+        console.log("--->yuyue")
     }
 })

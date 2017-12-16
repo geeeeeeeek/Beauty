@@ -1,14 +1,98 @@
-
+page{
+    height: 100%;
+}
 .page{
-    background-color: #fff;
-  font-family:  "PingFang SC","Microsoft YaHei",Arial,sans-serif; 
+   font-family:  "PingFang SC","Microsoft YaHei",Arial,sans-serif; 
+   background-color: #f9f9f9;
+    height: 100%;
 }
 
 image,view{
   /*border:1px #f00 solid;*/
 }
 
-.swiper-image{
-   width:100%; 
-   height: 100%; 
+
+/**每一条的**/
+
+.list-item{
+  display: flex;
+  flex-direction: row;  
+  background-color: #fff;
+  border-bottom: 1px #f5f5f5 solid;
+}
+
+.list-item-left-icon{
+  width:220rpx;
+  height:220rpx; 
+  margin: 30rpx;
+}
+
+.list-item-right{
+  flex:1;
+  margin: 30rpx 30rpx 30rpx 0rpx;
+}
+
+.item-title{
+  color:#333;
+  font-size: 16px;
+  margin-bottom: 16rpx;
+}
+
+.item-time{
+  color:#555;
+  font-size: 14px;
+  margin-bottom: 16rpx;  
+} 
+
+.item-time-duration{
+  margin-left: 16rpx;
+}
+
+.item-address{
+  color:#555;
+  font-size: 14px;
+  margin-bottom: 16rpx;  
+}
+
+.item-price{
+  color:#111;
+  font-size: 16px;
+  margin-bottom: 16rpx;  
+}
+
+.item-name{
+    color:#000;
+    font-size: 14px;
+    margin-bottom: 20rpx;
+}
+.item-wrap-p{
+    font-size: 12px;
+    margin-bottom: 16rpx;
+}
+.item-wrap-p-val{
+  margin-right: 16rpx;
+   color:#df6fa8; 
+}
+.item-score{
+    color:#555;
+    font-size: 12px; 
+    margin-bottom: 20rpx;
+}
+
+.item-wrap-tag{
+  margin-bottom: 16rpx;
+}
+
+.item-tag{
+  margin-right: 12rpx;
+}
+
+/**预约按钮**/ 
+.item-yuyue-btn{
+    color:#fff;
+    font-size: 14px;   
+    height: 58rpx;
+}
+.btn-hover{ 
+    opacity: 0.7;
 }

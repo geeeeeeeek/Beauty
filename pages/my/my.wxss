@@ -4,7 +4,7 @@
     height: 100%;
     font-family: "PingFang SC","Microsoft Yahei",Arial, Helvetica, sans-serif;
     font-size: 14px;
-    background-color: #fff;
+    background-color: #eee;
 }
 
 view,image{ 
@@ -14,6 +14,7 @@ view,image{
 /**图片区**/
 .page-header{ 
     position: relative;
+    border-bottom: 1rpx #e0e0e0 solid;
 }
 
 .swiper-image{
@@ -42,18 +43,49 @@ view,image{
     margin: 8rpx;
 } 
 
-/**订单**/
+.page-overview{
+  margin-top: 30rpx;
+  background-color: #fff; 
+  display: flex;
+  flex-direction: row;
+}
+
+.page-overview-left{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx 0;
+}
+
+.page-overview-right{
+  flex:1;
+  border-left: 1rpx #f3f3f3 solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-overview-val{ 
+  color: #f00;
+  font-size: 16px;
+}
+
+.page-overview-label{
+  color:#111;
+  font-size: 14px;
+}
+
 .page-item{
-    margin: 0 30rpx;
-    padding:40rpx 0;
-    border-bottom: 1px #ccc solid;
-    display: flex;
-    flex-direction: row;
+  background-color: #fff; 
+  margin-top: 30rpx;
+  padding:30rpx 0; 
+  display: flex;
+  flex-direction: row;
 }
 
 .p-icon{
     width:40rpx;
     height: 40rpx;
+    margin-right: 16rpx;
 }
 
 .item-name{

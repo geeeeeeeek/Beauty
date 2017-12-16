@@ -122,6 +122,20 @@ function uuid(len, radix) {
     return uuid.join('');
 }
 
+// 2018-01-10 格式的
+function getCurrentDate(){
+  var d = new Date();
+  var year = d.getFullYear();
+  var month = d.getMonth() + 1;
+  var day = d.getDay();
+  if(month < 10){
+    month = "0" + month;
+  }
+  if(day < 10){
+    day = "0" + day;
+  }
+  return year + "-" + month + "-" + day;
+}
 
 function su(){
 
@@ -140,6 +154,7 @@ module.exports = {
   getProductNameById:getProductNameById,
   getProductById:getProductById,
   showModal:showModal,
+  getCurrentDate,
   uuid:uuid,
   su:su,
   com:com

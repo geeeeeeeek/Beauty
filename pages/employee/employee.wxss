@@ -22,8 +22,9 @@ image,view{
 }
 
 .list-item-left-icon{
-  width:180rpx;
-  height:180rpx; 
+  width:220rpx;
+  height:220rpx;
+  border-radius:110rpx;
   margin: 30rpx;
 }
 
@@ -37,31 +38,34 @@ image,view{
     font-size: 14px;
     margin-bottom: 20rpx;
 }
-.item-remark{
-    color:#555;
+.item-wrap-p{
     font-size: 12px;
-    margin-bottom: 20rpx;
+    margin-bottom: 16rpx;
 }
-.item-remark-val{
-    color:#df6fa8;
+.item-wrap-p-val{
+  margin-right: 16rpx;
+   color:#df6fa8; 
 }
-.item-intr{
+.item-score{
     color:#555;
-    font-size: 12px;
+    font-size: 12px; 
     margin-bottom: 20rpx;
 }
 
-/**预约按钮**/
-.item-yuyue{ 
-    padding: 0 20rpx;
+.item-wrap-tag{
+  margin-bottom: 16rpx;
 }
+
+.item-tag{
+  margin-right: 12rpx;
+}
+
+/**预约按钮**/ 
 .item-yuyue-btn{
-    color:#eee;
+    color:#fff;
     font-size: 14px;   
     height: 58rpx;
-    background-color: #e84445;
 }
-.btn-hover{
-    background-color: #e84445;
+.btn-hover{ 
     opacity: 0.7;
 }

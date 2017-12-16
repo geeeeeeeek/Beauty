@@ -1,0 +1,122 @@
+page{
+    height: 100%;
+   background-color: #fff;    
+}
+.page{
+   font-family:  "PingFang SC","Microsoft YaHei",Arial,sans-serif; 
+   background-color: #fff;
+    height: 100%;
+}
+
+image,view{
+  /*border:1px #f00 solid;*/
+}
+
+.page-header{
+  background-color: #aa00ff;
+}
+
+
+.header-avatar{
+  margin-top: 60rpx;
+  width:160rpx;
+  height:160rpx;
+  border-radius: 80rpx;
+  border: 2rpx #fff solid;
+}
+
+.header-name{
+  color: #fff;
+  font-size: 20px;
+  margin-top: 20rpx;
+}
+
+.header-wrap-remark{
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 0;
+}
+
+.header-remark-item{
+  flex:1;
+  color: #fff;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-item{
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.ee-intro{
+  margin: 16rpx;
+  color: #777;
+  font-size: 10px;
+}
+
+.list{
+  margin-top: 20rpx; 
+  margin-bottom: 100rpx;
+} 
+
+.list-item{
+  margin: 16rpx;
+}
+
+.float-view{
+  position: fixed;
+  bottom: 0px;
+  height: 100rpx;
+  width:100%;
+  background-color: #aa00ff;
+  display: flex;
+  flex-direction: row;
+  color:#fff;
+  font-size: 14px;
+}
+
+.float-view-yuyue{
+  flex:2;
+}
+
+.float-view-remark{
+  flex:1;
+  background-color: #ffb301;
+}
+
+.float-view-like{
+  flex:1;
+}
+
+.float-view-like-icon{
+  width:50rpx;
+  height:50rpx;
+}
+
+.tag-p{
+  background-color: #aa00ff;  
+  color: #ffffff;
+  font-size: 14px;
+  height: 56rpx; 
+  border-radius: 28rpx;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  display: inline-flex; 
+  align-items: center;
+}
+
+.tag-m{
+  margin:12rpx;
+  background-color: #c5cae9;  
+  color: #5c6bc0; 
+  font-size: 12px;
+  height: 50rpx; 
+  border-radius: 25rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  display: inline-flex; 
+  align-items: center;
+}
