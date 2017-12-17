@@ -21,7 +21,7 @@
     <view class="form-item vc">
       <view class="form-item-label">开始时间</view>
       <view class="form-item-val">
-        <picker class="picker" mode="date" value="{{start_date}}" start="2017-12-12" end="2030-12-12" bindchange="bindDateChange">
+        <picker class="picker" mode="date" value="{{start_date}}" start="2017-01-12" end="2030-12-12" bindchange="bindDateChange">
           <view class="">{{start_date}}</view>
         </picker>
         <picker class="picker" mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">

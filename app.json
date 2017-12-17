@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/eeAuth/eeAuth",
     "pages/demandEdit/demandEdit",
     "pages/employee/employee",
     "pages/eeDetail/eeDetail",

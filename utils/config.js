@@ -18,6 +18,9 @@ var api_send_one_pv=appPath+'/api/pv/one';
 var api_get_all_book=appPath+'/api/book/all';
 var api_cancel_one_book=appPath+'/api/book/cancel'
 
+// 上传图像
+var api_upload_file = appPath + '/api/file/one';
+
 
 module.exports = { 
     img220:img220,
@@ -34,6 +37,8 @@ module.exports = {
     api_send_one_pv,
     api_get_all_book,
     api_cancel_one_book,
+
+    api_upload_file,
     
     // 后台用户名
     mid:'100'

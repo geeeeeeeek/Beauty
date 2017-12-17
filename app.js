@@ -13,7 +13,7 @@ App({
         success: function () {
           wx.getUserInfo({
             success: function (res) {
-              that.globalData.userInfo = res.userInfo 
+              that.globalData = res
               console.log("globalData===="+JSON.stringify(that.globalData));
 
               //获取uuid
@@ -30,6 +30,8 @@ App({
       }) 
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    encryptedData:null,
+    iv:null
   }
 })

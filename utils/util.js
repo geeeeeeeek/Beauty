@@ -29,18 +29,23 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
-function showLoading(){
+function showLoading(title){
   console.log("showloading-----");
-  wx.showToast({
-        title: '请稍后',
-        icon: 'loading',
-        duration: 5000
-    });
+  wx.showLoading({
+    title: title
+  })
 }
 
 function hideLoading(){
-  wx.hideToast();
+  wx.hideLoading();
 }
+
+function showToast(text){
+  wx.showToast({
+    title: text
+  })
+}
+
 
 function showModal(text){
    wx.showModal({
@@ -150,6 +155,7 @@ module.exports = {
   formatTime2: formatTime2,
   showLoading:showLoading,
   hideLoading:hideLoading,
+  showToast:showToast,
   showFailModal:showFailModal,
   getProductNameById:getProductNameById,
   getProductById:getProductById,
