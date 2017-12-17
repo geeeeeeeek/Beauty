@@ -1,0 +1,87 @@
+page{
+    height: 100%;
+   background-color: #fff;    
+}
+.page{
+   font-family:  "PingFang SC","Microsoft YaHei",Arial,sans-serif; 
+   background-color: #fff;
+    height: 100%;
+}
+
+image,view{
+  /*border:1px #f00 solid;*/
+}
+
+.page-header{
+  background-color: #fff;
+}
+
+.header-img{
+  width: 100%;
+}
+
+.content-desc-wrap{
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx #f1f1f1 solid;
+}
+
+.content-title-wrap{
+  display: flex;
+  flex-direction: row;
+}
+
+.content-title{
+  flex: 1;
+  color: #555;
+  font-size: 20px; 
+}
+
+.content-price{
+  color: #333;
+  font-size: 20px; 
+}
+
+.content-kv{
+  display: flex;
+  flex-direction: row;
+  margin: 30rpx 0;
+}
+
+.label{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.val{
+  color: #555;
+  font-size: 14px;
+  margin: 0 20rpx;
+}
+
+.content-intro-wrap{
+  padding: 30rpx;
+  margin-bottom: 50rpx;
+}
+
+.intro-label{
+  color:#333;
+  font-size: 18px;
+}
+
+.intro-val{
+  color: #333;
+  font-size: 14px;
+  margin: 30rpx 0;
+}
+
+.float-view{
+  position: fixed;
+  bottom: 0px;
+  height: 100rpx;
+  width:100%;
+  background-color: #b39ddb;
+  display: flex;
+  flex-direction: row;
+  color:#fff;
+  font-size: 14px;
+}
