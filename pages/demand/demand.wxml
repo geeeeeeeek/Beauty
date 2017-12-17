@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="page">
-  <view class="list-item">
+  <view class="list-item" bindtap="bindItemClick">
       <view class="list-item-left">
           <image class="list-item-left-icon" src="http://p3.pstatp.com/origin/40330002390297c1a730?version={{version}}"></image>
       </view>
@@ -13,44 +13,8 @@
           <view class="item-address">广州市花园路8号</view>
           <view class="item-price">200元</view>
           <view>
-              <button class="item-yuyue-btn theme-btn-color cc" hover-class="btn-hover" data-id="{{staff.s_id}}" bindtap="yyClick">接单</button>
+              <button class="item-yuyue-btn theme-btn-color cc" hover-class="btn-hover" data-id="{{staff.s_id}}" catchtap="bindTakeOrder">接单</button>
           </view> 
       </view>
-  </view>  
-
-  <view class="list-item">
-      <view class="list-item-left">
-          <image class="list-item-left-icon" src="http://p3.pstatp.com/origin/40330002390297c1a730?version={{version}}"></image>
-      </view>
-      <view class="list-item-right">
-          <view class="item-title">美容美甲1小时</view>
-          <view class="item-time">
-            <text>2017-10-10 09:30</text>
-            <text class="item-time-duration">120分钟</text>
-          </view> 
-          <view class="item-address">广州市花园路8号</view>
-          <view class="item-price">200元</view>
-          <view>
-              <button class="item-yuyue-btn theme-btn-color cc" hover-class="btn-hover" data-id="{{staff.s_id}}" bindtap="yyClick">接单</button>
-          </view> 
-      </view>
-  </view>  
-
-  <view class="list-item">
-      <view class="list-item-left">
-          <image class="list-item-left-icon" src="http://p3.pstatp.com/origin/40330002390297c1a730?version={{version}}"></image>
-      </view>
-      <view class="list-item-right">
-          <view class="item-title">美容美甲1小时</view>
-          <view class="item-time">
-            <text>2017-10-10 09:30</text>
-            <text class="item-time-duration">120分钟</text>
-          </view> 
-          <view class="item-address">广州市花园路8号</view>
-          <view class="item-price">200元</view>
-          <view>
-              <button class="item-yuyue-btn theme-btn-color cc" hover-class="btn-hover" data-id="{{staff.s_id}}" bindtap="yyClick">接单</button>
-          </view> 
-      </view>
-  </view>  
+  </view>   
 </view>

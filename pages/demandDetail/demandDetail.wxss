@@ -83,5 +83,5 @@ image,view{
   display: flex;
   flex-direction: row;
   color:#fff;
-  font-size: 14px;
+  font-size: 16px;
 }

@@ -1,11 +1,11 @@
 {
   "pages":[
+    "pages/employee/employee",
     "pages/demandDetail/demandDetail",
     "pages/demandEdit/demandEdit",
     "pages/eeDetail/eeDetail",
     "pages/erAuth/erAuth",
     "pages/eeAuth/eeAuth",
-    "pages/employee/employee",
     "pages/my/my",    
     "pages/demand/demand",
     "pages/index/index",
