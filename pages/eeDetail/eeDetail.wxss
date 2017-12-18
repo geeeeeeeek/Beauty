@@ -54,7 +54,7 @@ image,view{
 .ee-intro{
   margin: 16rpx;
   color: #777;
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .list{

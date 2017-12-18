@@ -33,6 +33,10 @@
       </view>
     </view>
     <view class="content-item cc">
+      <view class="tag-p ">闲置时间</view>
+      <view class="ee-intro">下午2点到6点</view>
+    </view>
+    <view class="content-item cc">
       <view class="tag-p ">技师寄语</view>
       <view class="ee-intro">大家好，哈哈哈</view>
     </view>

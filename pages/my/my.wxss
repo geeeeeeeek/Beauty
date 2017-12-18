@@ -37,6 +37,12 @@ view,image{
     height: 120rpx;
     border-radius: 60rpx;
 }
+
+.header-auth{
+  width: 100rpx;
+  height: 30rpx;
+}
+
 .info-name{
     color:#333;
     font-size: 12px;  

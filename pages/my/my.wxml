@@ -10,6 +10,7 @@
         <view class="header-info cc">
              <image src="{{userInfo.avatarUrl}}" mode="scaleToFill" class="header-icon" />
              <text class="info-name vc">{{userInfo.nickName}}</text> 
+             <image src="../../images/icon_has_auth.png" mode="aspectFit" class="header-auth" />  
         </view>
     </view> 
 
@@ -22,6 +23,13 @@
       <text class="page-overview-val">15</text>
       <text class="page-overview-label">评分</text>
     </view>
+  </view>
+
+  <view class="page-item vc">
+    <view class="item-name">个人资料</view>
+      <view class="vc">
+          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+      </view>
   </view>
 
   <view class="page-item vc">
