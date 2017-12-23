@@ -25,8 +25,15 @@
     </view>
   </view>
 
-  <view class="page-item vc" bindtap="infoClick">
+  <view class="page-item vc" bindtap="eeInfoClick">
     <view class="item-name">个人资料</view>
+      <view class="vc">
+          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+      </view>
+  </view>
+
+  <view class="page-item vc" bindtap="erInfoClick">
+    <view class="item-name">店家资料</view>
       <view class="vc">
           <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
       </view>
@@ -46,7 +53,7 @@
       </view>
   </view>
 
-  <view class="page-item vc">
+  <view class="page-item vc" bindtap='myPublishClick'>
     <view class="item-name">我的发布</view>
       <view class="vc">
           <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
@@ -60,7 +67,7 @@
       </view>
   </view>
 
-  <view class="page-item vc">
+  <view class="page-item vc" bindtap='myYuyueClick'>
     <view class="item-name">我的预约</view>
       <view class="vc">
           <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />

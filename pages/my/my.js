@@ -15,9 +15,15 @@ Page({
         }
     },
 
-    infoClick: function(){
+    eeInfoClick: function(){
       wx.navigateTo({
-        url: '../infoEdit/infoEdit',
+        url: '../eeInfoEdit/eeInfoEdit',
+      })
+    },
+
+    erInfoClick: function () {
+      wx.navigateTo({
+        url: '../erInfoEdit/erInfoEdit',
       })
     },
 
@@ -30,6 +36,18 @@ Page({
     erAuthClick: function(){
       wx.navigateTo({
         url: '../erAuth/erAuth',
+      })
+    },
+
+    myPublishClick: function(){
+      wx.navigateTo({
+        url: '../myPublish/myPublish',
+      })
+    },
+
+    myYuyueClick: function(){
+      wx.navigateTo({
+        url: '../myYuyue/myYuyue',
       })
     },
 

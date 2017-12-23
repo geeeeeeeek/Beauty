@@ -1,8 +1,11 @@
 {
   "pages":[
-    "pages/employee/employee",
+    "pages/employee/employee",    
+    "pages/myYuyue/myYuyue",
+    "pages/erInfoEdit/erInfoEdit",
+    "pages/myPublish/myPublish",
     "pages/my/my",
-    "pages/infoEdit/infoEdit",
+    "pages/eeInfoEdit/eeInfoEdit",
     "pages/eeDetail/eeDetail",    
     "pages/yuyueEdit/yuyueEdit",
     "pages/myOrder/myOrder",
@@ -15,7 +18,6 @@
     "pages/order/orderAddress",
     "pages/order/orderProducts",
     "pages/product/product",
-    "pages/myYuyue/myYuyue",
     "pages/myAddress/myAddress"
   ],
   "window":{
