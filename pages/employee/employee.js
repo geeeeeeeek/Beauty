@@ -41,6 +41,8 @@ Page({
 
     //去预约页面
     yyClick(e){ 
-        console.log("--->yuyue")
+      wx.navigateTo({
+        url: '../yuyueEdit/yuyueEdit'
+      })
     }
 })

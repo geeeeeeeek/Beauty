@@ -15,19 +15,27 @@ Page({
         }
     },
 
-    yuyueClick(){
-        wx.navigateTo({
-          url: '../myYuyue/myYuyue'
-        })
+    infoClick: function(){
+      wx.navigateTo({
+        url: '../infoEdit/infoEdit',
+      })
     },
 
-    addressClick(){
-        wx.navigateTo({
-          url: '../myAddress/myAddress'
-        })
+    eeAuthClick: function(){
+      wx.navigateTo({
+        url: '../eeAuth/eeAuth',
+      })
     },
 
-    discountClick(){
-        util.showModal("暂无优惠券");
+    erAuthClick: function(){
+      wx.navigateTo({
+        url: '../erAuth/erAuth',
+      })
+    },
+
+    myOrderClick: function(){
+      wx.navigateTo({
+        url: '../myOrder/myOrder',
+      })
     }
 })
