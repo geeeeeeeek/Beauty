@@ -39,8 +39,8 @@ view,image{
 }
 
 .header-auth{
-  width: 100rpx;
-  height: 30rpx;
+  width: 120rpx;
+  height: 40rpx;
 }
 
 .info-name{
