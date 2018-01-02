@@ -2,6 +2,26 @@
 var config=require('config.js')
 var util=require('util.js')
 
+// 获取技师列表
+function getAllEmployee(uid, su){
+  util.showLoading();
+  var url = config.api_get_all_employee;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: {
+      uid: uid
+    },
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
 /**
  * 发送pv
  */
@@ -271,16 +291,18 @@ function cancelOneBook(bid,su){
 
 
 module.exports={
-    getSwiperData:getSwiperData,
-    getProductData:getProductData,
-    getHotProductData:getHotProductData,
-    getRecentProductData:getRecentProductData,
-    getModeProductData:getModeProductData,
-    getStaffList:getStaffList,
-    getProductById:getProductById,
-    getOneStaff:getOneStaff,
-    bookStaff:bookStaff,
-    sendPv:sendPv,
-    getAllBook:getAllBook,
-    cancelOneBook:cancelOneBook
+  getAllEmployee,
+
+  getSwiperData:getSwiperData,
+  getProductData:getProductData,
+  getHotProductData:getHotProductData,
+  getRecentProductData:getRecentProductData,
+  getModeProductData:getModeProductData,
+  getStaffList:getStaffList,
+  getProductById:getProductById,
+  getOneStaff:getOneStaff,
+  bookStaff:bookStaff,
+  sendPv:sendPv,
+  getAllBook:getAllBook,
+  cancelOneBook:cancelOneBook
 }

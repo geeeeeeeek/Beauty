@@ -1,12 +1,12 @@
 
 <view class="page">
-    
+      <block wx:for="{{employees}}" wx:for-item="employee" wx:key="uid">
         <view class="list-item"  bindtap="itemClick">
             <view class="list-item-left">
                 <image class="list-item-left-icon" src="http://p3.pstatp.com/origin/40330002390297c1a730?version={{version}}"></image>
             </view>
             <view class="list-item-right">
-                <view class="item-name">小小天空</view>
+                <view class="item-name">{{employee.nickName}}</view>
                 <view class="item-wrap-p">
                     <text class="item-wrap-p-val">20岁</text> 
                     <text class="item-wrap-p-val">170cm</text> 
@@ -23,6 +23,6 @@
                 </view> 
             </view>
         </view>  
-        
+      </block>  
 
 </view>

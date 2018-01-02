@@ -1,4 +1,4 @@
-var appPath='https://www.wxfont.com';
+var appPath='https://beauty.wxfont.com';
 // var appPath='http://localhost';
 
 //图片资源
@@ -6,6 +6,8 @@ var img220=appPath+'/upload/img_220';
 var img800=appPath+'/upload/img_800';
 
 //api请求
+var api_get_all_employee=appPath+'/api/employee/all';
+
 var api_get_all_product=appPath+'/api/product/all';
 var api_get_hot_product=appPath+'/api/product/hot';
 var api_get_mode_product=appPath+'/api/product/mode';
@@ -25,6 +27,8 @@ var api_upload_file = appPath + '/api/file/one';
 module.exports = { 
     img220:img220,
     img800:img800,
+
+    api_get_all_employee,
 
     api_get_all_product,
     api_get_hot_product,

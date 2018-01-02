@@ -4,11 +4,8 @@ var util=require('../../utils/util.js')
 
 Page({
     data:{
-        
         version:null,
-        img800:config.img800,
-
-        staffs:null,
+        employees:null
     },
 
     onLoad:function(){
@@ -16,12 +13,14 @@ Page({
 
         this.init();
 
-        api.getStaffList(config.mid,function(res){
-            that.setData({
-                staffs:res.data.staffs
-            });
-            console.log("请求返回：==========="+res.data.staffs);
-        });
+        var uid = 'haha';
+
+        api.getAllEmployee(uid, function(res){ 
+          util.printObj("employee", res.data); 
+          that.setData({
+            employees: res.data.employees
+          })
+        })
     },
 
     init:function(){

@@ -72,6 +72,10 @@ function showFailModal(){
   })
 }
 
+function printObj(tag, data){
+  console.log(tag + "-->" + JSON.stringify(data));
+}
+
 function getProductNameById(id){
   var products=wx.getStorageSync('products');
   for(var i=0;i<products.length;i++){
@@ -153,6 +157,7 @@ function com(){
 module.exports = {
   formatTime: formatTime,
   formatTime2: formatTime2,
+  printObj: printObj,
   showLoading:showLoading,
   hideLoading:hideLoading,
   showToast:showToast,
