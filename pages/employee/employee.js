@@ -16,7 +16,7 @@ Page({
         var uid = 'haha';
 
         api.getAllEmployee(uid, function(res){ 
-          util.printObj("employee", res.data); 
+          util.printObj("employees", res.data); 
           that.setData({
             employees: res.data.employees
           })
@@ -34,7 +34,7 @@ Page({
     itemClick: function (e) {
       var ds = e.currentTarget.dataset;
       wx.navigateTo({
-        url: '../eeDetail/eeDetail'
+        url: '../eeDetail/eeDetail?id='+ds.id
       })
     },
 

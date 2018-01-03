@@ -22,6 +22,26 @@ function getAllEmployee(uid, su){
   })
 }
 
+// 获取技师详情
+function getEmployeeById(uid, su){
+  util.showLoading();
+  var url = config.api_get_one_employee;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: {
+      uid: uid
+    },
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
 /**
  * 发送pv
  */
@@ -292,6 +312,7 @@ function cancelOneBook(bid,su){
 
 module.exports={
   getAllEmployee,
+  getEmployeeById,
 
   getSwiperData:getSwiperData,
   getProductData:getProductData,

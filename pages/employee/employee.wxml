@@ -1,7 +1,7 @@
 
 <view class="page">
       <block wx:for="{{employees}}" wx:for-item="employee" wx:key="uid">
-        <view class="list-item"  bindtap="itemClick">
+        <view class="list-item" data-id="{{employee.userId}}"  bindtap="itemClick">
             <view class="list-item-left">
                 <image class="list-item-left-icon" src="http://p3.pstatp.com/origin/40330002390297c1a730?version={{version}}"></image>
             </view>
