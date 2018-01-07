@@ -1,6 +1,6 @@
 # Beauty
-微服务预约
 
-#### 我的页面
-- 如果角色是技师，则显示订单和评分，显示个人资料、我的订单、帮助。
-- 如果角色是店家，则显示店家资料，我的发布，我的预约，帮助。
+#### mini program learning 
+- winxin mini program
+- study day by day
+- https://mp.weixin.qq.com/debug/wxadoc/dev/api/
