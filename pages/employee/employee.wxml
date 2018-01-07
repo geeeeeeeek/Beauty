@@ -3,21 +3,21 @@
       <block wx:for="{{employees}}" wx:for-item="employee" wx:key="uid">
         <view class="list-item" data-id="{{employee.userId}}"  bindtap="itemClick">
             <view class="list-item-left">
-                <image class="list-item-left-icon" src="http://p3.pstatp.com/origin/40330002390297c1a730?version={{version}}"></image>
+                <image class="list-item-left-icon" src="{{baseAvatar}}{{employee.avatar}}?version={{version}}"></image>
             </view>
             <view class="list-item-right">
                 <view class="item-name">{{employee.nickName}}</view>
                 <view class="item-wrap-p">
-                    <text class="item-wrap-p-val">20岁</text> 
-                    <text class="item-wrap-p-val">170cm</text> 
-                    <text class="item-wrap-p-val">广州市</text>
+                    <text class="item-wrap-p-val">{{employee.age}}岁</text> 
+                    <text class="item-wrap-p-val">{{employee.height}}cm</text> 
+                    <text class="item-wrap-p-val">{{employee.region? employee.region:''}}</text>
                 </view>
                 <view class="item-wrap-tag">
-                    <view class="tag-main item-tag">美甲</view>
-                    <view class="tag-main item-tag">美容</view>
-                    <view class="tag-main item-tag">脸部按摩</view>
+                  <block wx:for="{{employee.skill}}" wx:for-item="skillItem" wx:key="">
+                    <view class="tag-main item-tag">{{skillItem}}</view>                    
+                  </block> 
                 </view>
-                <view class="item-score">信誉度：5.0分</view> 
+                <view class="item-score">信誉度：{{employee.score? employee.score:'1.0'}}分</view> 
                 <view>
                     <button class="item-yuyue-btn theme-btn-color cc" hover-class="btn-hover" data-id="{{staff.s_id}}" catchtap="yyClick">预约</button>
                 </view> 

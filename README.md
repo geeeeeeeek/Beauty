@@ -14,10 +14,11 @@
 - height
 - region
 - address
-- skill
+- skill // 技能--> 'aa,ab'
 - score
-- likeCount
+- praiseCount // 好评数
+- likeCount  // 获赞数
 - worksCount // 作品数
 - spareTime  // 闲暇时间
 - introduce  // 寄语
-- worksUrl   // 作品图片
+- worksUrl   // 作品图片--> 'aa,ab'

@@ -2,6 +2,8 @@
 var appPath='http://localhost:8080';
 
 //图片资源
+var baseAvatar = appPath+'/upload/avatar/';
+var baseWorksUrl = appPath+'/upload/works/';
 var img220=appPath+'/upload/img_220';
 var img800=appPath+'/upload/img_800';
 
@@ -26,6 +28,8 @@ var api_upload_file = appPath + '/api/file/one';
 
 
 module.exports = { 
+    baseAvatar: baseAvatar,
+    baseWorksUrl: baseWorksUrl,
     img220:img220,
     img800:img800,
 

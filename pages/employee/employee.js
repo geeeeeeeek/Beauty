@@ -4,30 +4,44 @@ var util=require('../../utils/util.js')
 
 Page({
     data:{
-        version:null,
-        employees:null
+      baseAvatar:config.baseAvatar,
+      version: new Date().getTime(),
+      employees:null
     },
 
     onLoad:function(){
         var that=this;
 
-        this.init();
-
         var uid = 'haha';
 
         api.getAllEmployee(uid, function(res){ 
           util.printObj("employees", res.data); 
+
           that.setData({
             employees: res.data.employees
           })
+
+          // 处理skill数据
+          that.handleSkillTag();
         })
     },
+ 
 
-    init:function(){
-        var v=new Date().getTime();
-        this.setData({
-            version:v
-        })
+    // 处理技能tag  
+    handleSkillTag: function(){
+      var employees = this.data.employees;
+      if(employees){
+        for(var i = 0;i < employees.length; i++){
+            var skill = employees[i].skill; 
+            if(skill){
+               employees[i].skill = skill.split(",");
+               console.log(skill)
+            }
+        }
+      };
+      this.setData({
+        employees:employees
+      })
     },
 
     //单条点击

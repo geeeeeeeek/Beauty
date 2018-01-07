@@ -2,22 +2,22 @@
 
   <view class="page-header">
     <view class="header-wrap-avatar cc">
-      <image class="header-avatar" src="http://p3.pstatp.com/origin/40330002390297c1a730"></image>
+      <image class="header-avatar" src="{{baseAvatar}}{{employee.avatar}}"></image>
     </view>
     <view class="cc">
-      <text class="header-name">静静</text>
+      <text class="header-name">{{employee.nickName}}</text>
     </view>
     <view class="header-wrap-remark">
       <view class="header-remark-item cc">
-        <text>10</text>
+        <text>{{employee.praiseCount? employee.praiseCount:1}}</text>
         <text>好评</text>
       </view>
       <view class="header-remark-item cc">
-        <text>10</text>
+        <text>{{employee.worksCount? employee.worksCount:0}}</text>
         <text>作品</text>
       </view>
       <view class="header-remark-item cc">
-        <text>10</text>
+        <text>{{employee.likeCount? employee.likeCount:0}}</text>
         <text>获赞</text>
       </view> 
     </view>
@@ -27,31 +27,27 @@
     <view class="content-item cc">
       <view class="tag-p ">技能擅长</view>
       <view>
-      <view class="tag-m ">美甲</view>
-      <view class="tag-m ">美眉</view>
-      <view class="tag-m ">脸部按摩</view>
+      <block wx:for="{{employee.skill}}" wx:for-item="skillItem" wx:key="">
+        <view class="tag-m ">{{skillItem}}</view>        
+      </block> 
       </view>
     </view>
     <view class="content-item cc">
       <view class="tag-p ">闲置时间</view>
-      <view class="ee-intro">下午2点到6点</view>
+      <view class="ee-intro">{{employee.spareTime}}</view>
     </view>
     <view class="content-item cc">
       <view class="tag-p ">技师寄语</view>
-      <view class="ee-intro">大家好，哈哈哈</view>
+      <view class="ee-intro">{{employee.introduce? employee.introduce:'大家好'}}</view>
     </view>
     <view class="content-item cc">
       <view class="tag-p">作品展示</view>
       <view class="list">
-        <view class="list-item">
-          <image mode="aspectFill" src="http://p3.pstatp.com/origin/40330002390297c1a730"></image>
+        <block wx:for="{{employee.worksUrl}}" wx:for-item="url" wx:key="">
+          <view class="list-item">
+          <image mode="aspectFill" src="{{baseWorksUrl}}{{url}}"></image>
         </view> 
-        <view class="list-item">
-          <image mode="aspectFill" src="http://p3.pstatp.com/origin/40330002390297c1a730"></image>
-        </view> 
-        <view class="list-item">
-          <image mode="aspectFill" src="http://p3.pstatp.com/origin/40330002390297c1a730"></image>
-        </view> 
+        </block> 
       </view>
     </view>
   </view>
