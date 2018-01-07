@@ -1,5 +1,5 @@
-var appPath='https://beauty.wxfont.com';
-// var appPath='http://localhost';
+// var appPath='https://beauty.wxfont.com';
+var appPath='http://localhost:8080';
 
 //图片资源
 var img220=appPath+'/upload/img_220';
