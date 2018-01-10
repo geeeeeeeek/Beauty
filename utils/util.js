@@ -1,3 +1,44 @@
+
+function getUID(){
+  return wx.getStorageSync("uid");
+}
+
+function setUID(uid){
+  wx.setStorageSync("uid", uid);
+}
+
+function checkLogin(){
+  var uid = getUID();
+  if(!uid){
+    login();
+  }
+}
+
+function login(){
+  wx.login({
+    success: function (res) {
+      if(res.code){
+        console.log("code-->" + res.code);
+
+        wx.getUserInfo({
+          success: function (res) {
+            console.log("globalData====" + JSON.stringify(res));
+
+            console.log("encryptedData-->" + res.encryptedData);
+            console.log("iv-->" + res.iv);
+            // api.getUID();
+            wx.setStorageSync('userInfo', res.userInfo);
+          }
+        })
+      }
+    },
+    fail: function(){
+
+    }
+  }) 
+}
+
+
 function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1
@@ -95,41 +136,7 @@ function getProductById(id){
     }
   }
 }
-
-function generateUUID(){
-    var d = new Date().getTime();
-    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = (d + Math.random()*16)%16 | 0;
-        d = Math.floor(d/16);
-        return (c=='x' ? r : (r&0x7|0x8)).toString(16);
-    });
-    return uuid;
-}
-
-function uuid(len, radix) {
-    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-    var uuid = [], i;
-    radix = radix || chars.length;
  
-    if (len) {
-      for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random()*radix];
-    } else {
-      var r;
- 
-      uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
-      uuid[14] = '4';
- 
-      // Fill in random data.  At i==19 set the high bits of clock sequence as
-      for (i = 0; i < 36; i++) {
-        if (!uuid[i]) {
-          r = 0 | Math.random()*16;
-          uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
-        }
-      }
-    }
- 
-    return uuid.join('');
-}
 
 // 2018-01-10 格式的
 function getCurrentDate(){
@@ -155,6 +162,10 @@ function com(){
 }
 
 module.exports = {
+  getUID: getUID,
+  setUID: setUID,
+  checkLogin: checkLogin,
+  login: login,
   formatTime: formatTime,
   formatTime2: formatTime2,
   printObj: printObj,
@@ -166,7 +177,6 @@ module.exports = {
   getProductById:getProductById,
   showModal:showModal,
   getCurrentDate,
-  uuid:uuid,
   su:su,
   com:com
 }

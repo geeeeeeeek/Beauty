@@ -2,6 +2,29 @@
 var config=require('config.js')
 var util=require('util.js')
 
+// 获取uid
+function getUID(appid, sessionKey, encryptedData, iv, su){
+  util.showLoading();
+  var url = config.api_get_all_employee;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: {
+      appid: appid,
+      sessionKey: sessionKey,
+      encryptedData: encryptedData,
+      iv: iv
+    },
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
 // 获取技师列表
 function getAllEmployee(uid, su){
   util.showLoading();

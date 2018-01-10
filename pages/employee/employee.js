@@ -24,6 +24,8 @@ Page({
           // 处理skill数据
           that.handleSkillTag();
         })
+
+        util.checkLogin();
     },
  
 
@@ -35,7 +37,6 @@ Page({
             var skill = employees[i].skill; 
             if(skill){
                employees[i].skill = skill.split(",");
-               console.log(skill)
             }
         }
       };
