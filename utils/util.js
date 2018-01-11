@@ -9,34 +9,8 @@ function setUID(uid){
 
 function checkLogin(){
   var uid = getUID();
-  if(!uid){
-    login();
-  }
 }
 
-function login(){
-  wx.login({
-    success: function (res) {
-      if(res.code){
-        console.log("code-->" + res.code);
-
-        wx.getUserInfo({
-          success: function (res) {
-            console.log("globalData====" + JSON.stringify(res));
-
-            console.log("encryptedData-->" + res.encryptedData);
-            console.log("iv-->" + res.iv);
-            // api.getUID();
-            wx.setStorageSync('userInfo', res.userInfo);
-          }
-        })
-      }
-    },
-    fail: function(){
-
-    }
-  }) 
-}
 
 
 function formatTime(date) {
@@ -165,7 +139,6 @@ module.exports = {
   getUID: getUID,
   setUID: setUID,
   checkLogin: checkLogin,
-  login: login,
   formatTime: formatTime,
   formatTime2: formatTime2,
   printObj: printObj,

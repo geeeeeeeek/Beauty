@@ -10,6 +10,7 @@ var img800=appPath+'/upload/img_800';
 //api请求
 var api_get_all_employee=appPath+'/api/employee/all';
 var api_get_one_employee = appPath + '/api/employee/one';
+var api_get_one_uid = appPath + '/api/uid/one';
 
 var api_get_all_product=appPath+'/api/product/all';
 var api_get_hot_product=appPath+'/api/product/hot';
@@ -35,6 +36,7 @@ module.exports = {
 
     api_get_all_employee,
     api_get_one_employee,
+    api_get_one_uid,
 
     api_get_all_product,
     api_get_hot_product,

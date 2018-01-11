@@ -2,22 +2,58 @@
 var config=require('config.js')
 var util=require('util.js')
 
+// login
+function login() {
+  wx.login({
+    success: function (res) {
+      if (res.code) {
+        var code = res.code;
+        console.log("code-->" + code);
+
+        wx.getUserInfo({
+          success: function (res) {
+            console.log("globalData====" + JSON.stringify(res));
+
+            console.log("encryptedData-->" + res.encryptedData);
+            console.log("iv-->" + res.iv);
+
+            var encryptedData = res.encryptedData;
+            var iv = res.iv;
+
+            getUID(encryptedData, iv, code, function(result){
+              var obj = result.data;
+              console.log("obj-->" + obj);  
+              // todo 
+              console.log("openId-->" + result.data.msg); 
+              
+            }); 
+            wx.setStorageSync('userInfo', res.userInfo);
+          }
+        })
+      }
+    },
+    fail: function () {
+
+    }
+  })
+}
+
 // 获取uid
-function getUID(appid, sessionKey, encryptedData, iv, su){
-  util.showLoading();
-  var url = config.api_get_all_employee;
+function getUID(encryptedData, iv, code, su){
+  util.showLoading('请稍等');
+  var url = config.api_get_one_uid;
   wx.request({
     url: url,
     method: 'GET',
+    dataType: 'json',
     data: {
-      appid: appid,
-      sessionKey: sessionKey,
       encryptedData: encryptedData,
-      iv: iv
+      iv: iv,
+      code: code
     },
     success: su,
     fail: function () {
-      util.showFailModal();
+      util.showModal('登录失败');
     },
     complete: function () {
       util.hideLoading();
@@ -334,6 +370,8 @@ function cancelOneBook(bid,su){
 
 
 module.exports={
+  login: login,
+  getUID: getUID,
   getAllEmployee,
   getEmployeeById,
 

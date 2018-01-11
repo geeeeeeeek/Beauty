@@ -25,7 +25,8 @@ Page({
           that.handleSkillTag();
         })
 
-        util.checkLogin();
+        // util.checkLogin();
+        api.login();
     },
  
 
