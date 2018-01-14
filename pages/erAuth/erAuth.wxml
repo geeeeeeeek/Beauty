@@ -3,27 +3,27 @@
     <view class="form-item vc">
       <view class="form-item-label">门店名称<text class="star">*</text></view>
       <view class="form-item-val">
-        <input class="form-item-input" placeholder="请输入店名" value="" maxlength="16" type="text" />
+        <input class="form-item-input" placeholder="请输入店名" value="{{employer.storeName}}" maxlength="16" type="text" />
       </view>
     </view>
     <view class="form-item vc">
       <view class="form-item-label">联系人<text class="star">*</text></view>
       <view class="form-item-val">
-        <input class="form-item-input" placeholder="请输入联系人" value="" maxlength="11" type="text" />
+        <input class="form-item-input" placeholder="请输入联系人" value="{{employer.contact}}" maxlength="11" type="text" />
       </view>
     </view>
     <view class="form-item vc">
       <view class="form-item-label">手机号<text class="star">*</text></view>
       <view class="form-item-val">
-        <input class="form-item-input" placeholder="请输入手机号" value="" maxlength="11" type="number" />
+        <input class="form-item-input" placeholder="请输入手机号" value="{{employer.phone}}" maxlength="11" type="number" />
       </view>
     </view>
     <view class="form-item vc">
       <view class="form-item-label">门店地址<text class="star">*</text></view>
       <view class="form-item-val vc">
-        <picker mode="region" class="picker" bindchange="bindRegionPickerChange" value="{{region}}">
+        <picker mode="region" class="picker" bindchange="bindRegionPickerChange" value="{{employer.region}}">
           <view class="picker-left">
-           {{region[0]}}，{{region[1]}}，{{region[2]}}
+           {{employer.region[0]}}，{{employer.region[1]}}，{{employer.region[2]}}
           </view>
         </picker>
         <image class="icon-right" src="../../images/icon_rightgo.png"/>
@@ -32,13 +32,13 @@
     <view class="form-item vc">
       <view class="form-item-label">详细地址<text class="star">*</text></view>
       <view class="form-item-val">
-        <input class="form-item-input" placeholder="例如：青年路88号" value="" maxlength="20" type="text" />
+        <input class="form-item-input" placeholder="例如：青年路88号" value="{{employer.address}}" maxlength="20" type="text" />
       </view>
     </view>
     <view class="form-item-p">
       <view class="form-item-p-label">店铺介绍</view>
       <view class="form-item-p-val vc">
-        <textarea class="text-area" placeholder="介绍下吧~ 140字以内" maxlength="140" value=""/>
+        <textarea class="text-area" placeholder="介绍下吧~ 140字以内" maxlength="140" value="{{employer.introduce}}"/>
       </view>
     </view>
     <view class="form-item-m m-mt-30">
@@ -46,7 +46,7 @@
       <view class="form-item-m-val vc">
         <view class="m-icon-wrap cc" bindtap="bindLicensePic">
           <image class="m-icon" src="../../images/icon_camera.png"/>
-          <image class="m-icon-pic" src="{{cardPicN}}"/>
+          <image class="m-icon-pic" src="{{baseLicenseUrl}}{{employer.license}}"/>
         </view>
         <view class="m-tip">请上传营业执照扫描件，支持JPG,PNG格式图片且大小不超过1M。</view>
       </view>
@@ -56,7 +56,7 @@
       <view class="form-item-m-val vc">
         <view class="m-icon-wrap cc" bindtap="bindStorePic">
           <image class="m-icon" src="../../images/icon_camera.png"/>
-          <image class="m-icon-pic" src="{{cardPicN}}"/>
+          <image class="m-icon-pic" src="{{baseStoreUrl}}{{employer.storePhoto}}"/>
         </view>
         <view class="m-tip">请上传带logo的门店照片，支持JPG,PNG格式图片且大小不超过1M。</view>
       </view>

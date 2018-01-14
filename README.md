@@ -5,9 +5,13 @@
 - study day by day
 - https://mp.weixin.qq.com/debug/wxadoc/dev/api/
 
+#### attention
+- 测试/正式环境
+- php.ini 上传文件大小
+- DB定时拷贝
 
 #### 表 employee
-- userId
+- uid
 - nickName
 - avatar
 - age
@@ -22,3 +26,19 @@
 - spareTime  // 闲暇时间
 - introduce  // 寄语
 - worksUrl   // 作品图片--> 'aa,ab'
+
+#### user
+- uid
+- openId
+- time
+
+#### er
+- uid
+- storeName
+- contact
+- phone
+- region
+- address
+- introduce
+- license
+- storePhoto

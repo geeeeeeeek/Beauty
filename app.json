@@ -1,11 +1,11 @@
 {
   "pages":[
+    "pages/erAuth/erAuth",    
     "pages/employee/employee",    
     "pages/myYuyue/myYuyue",
     "pages/erInfoEdit/erInfoEdit",
     "pages/myPublish/myPublish",
     "pages/my/my",
-    "pages/erAuth/erAuth",
     "pages/eeAuth/eeAuth",
     "pages/eeInfoEdit/eeInfoEdit",
     "pages/eeDetail/eeDetail",    
@@ -43,12 +43,6 @@
         "iconPath": "images/icon_demand.png",
         "selectedIconPath": "images/icon_demand_selected.png",
         "text": "接单"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "images/icon_beauty.png",
-        "selectedIconPath": "images/icon_beauty.png",
-        "text": "美容师"
       },
       {
         "pagePath": "pages/my/my",

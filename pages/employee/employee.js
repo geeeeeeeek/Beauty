@@ -25,8 +25,26 @@ Page({
           that.handleSkillTag();
         })
 
-        // util.checkLogin();
-        api.login();
+        // 登录 
+        if(!util.getUID()){
+          util.checkUserInfoAuth(function () {
+            api.login();
+          })
+        }
+
+        wx.requestPayment({
+          timeStamp: '',
+          nonceStr: '',
+          package: '',
+          signType: '',
+          paySign: '',
+          success: function (res) {
+          },
+          fail: function (res) {
+          
+          }
+        })
+        
     },
  
 

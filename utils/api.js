@@ -8,24 +8,19 @@ function login() {
     success: function (res) {
       if (res.code) {
         var code = res.code;
-        console.log("code-->" + code);
 
         wx.getUserInfo({
-          success: function (res) {
-            console.log("globalData====" + JSON.stringify(res));
-
-            console.log("encryptedData-->" + res.encryptedData);
-            console.log("iv-->" + res.iv);
-
+          success: function (res) { 
             var encryptedData = res.encryptedData;
             var iv = res.iv;
-
             getUID(encryptedData, iv, code, function(result){
-              var obj = result.data;
-              console.log("obj-->" + obj);  
-              // todo 
-              console.log("openId-->" + result.data.msg); 
-              
+              var obj = result.data;  
+              if(0 == obj.code){
+                console.log("uid-->" + obj.uid);
+                util.setUID(obj.uid);
+              }else{
+                util.showModal('登录失败');               
+              }              
             }); 
             wx.setStorageSync('userInfo', res.userInfo);
           }
@@ -33,7 +28,7 @@ function login() {
       }
     },
     fail: function () {
-
+      util.showModal('登录失败');
     }
   })
 }
@@ -54,6 +49,28 @@ function getUID(encryptedData, iv, code, su){
     success: su,
     fail: function () {
       util.showModal('登录失败');
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+
+// 获取店家信息
+function getOneEmployer(su) {
+  util.showLoading('请稍等');
+  var url = config.api_get_one_employer;
+  wx.request({
+    url: url,
+    method: 'GET',
+    dataType: 'json',
+    data: {
+      uid: util.getUID()
+    },
+    success: su,
+    fail: function () {
+      util.showModal('网络异常');
     },
     complete: function () {
       util.hideLoading();
@@ -374,6 +391,7 @@ module.exports={
   getUID: getUID,
   getAllEmployee,
   getEmployeeById,
+  getOneEmployer,
 
   getSwiperData:getSwiperData,
   getProductData:getProductData,

@@ -1,21 +1,41 @@
 var util = require('../../utils/util.js')
 var config = require('../../utils/config.js')
+var api = require('../../utils/api.js')
 
 Page({
   data: {
-    userInfo: null,
-    region: ['广东省', '广州市', '天河区'],
-    cardPicP: null,
-    cardPicN: null
+    baseLicenseUrl: config.baseLicenseUrl,
+    baseStoreUrl: config.baseStoreUrl,
+    employer: {
+      region: ['广东省', '广州市', '天河区']
+    }
   },
 
   onLoad: function () {
-    
+    var that = this;
+    console.log("-->" + util.getUID());
+    api.getOneEmployer(function(res){
+      // get data
+      var employer = res.data.employer;
+      if(!employer){
+        return;
+      }
+
+      if(!employer.region){
+        employer.region = new Array('广东省', '广州市','天河区');
+      }
+
+      that.setData({
+        employer: employer
+      })
+    })
   },
 
   bindRegionPickerChange: function (e) {
+    var employer = this.data.employer;
+    employer.region = e.detail.value;
     this.setData({
-      region: e.detail.value
+      employer: employer
     })
   },
 
@@ -32,22 +52,32 @@ Page({
           util.showLoading("上传中...");
           var localPath = tempFilePaths[0];
           wx.uploadFile({
-            url: config.api_upload_file,
+            url: config.api_upload_license,
             filePath: tempFilePaths[0],
             name: 'file',
             formData: {
-              'user': 'test'
+              'uid': util.getUID()
             },
             success: function (res) {
               util.hideLoading();
-              if (res.statusCode == 200) {
-                console.log("upload success")
-                util.showToast("上传成功");
-                var data = res.data;
-                //do something
-                that.setData({
-                  cardPicP: localPath
-                });
+              console.log("res-->"+JSON.stringify(res));
+              if (res.statusCode == 200) { 
+                var obj = JSON.parse(res.data);  
+                
+                if (obj.code == 0){
+                  console.log("upload success")
+                  util.showToast("上传成功");
+                  // update local
+                  var license = obj.license;
+                  var employer = that.data.employer;
+                  employer.license = obj.license;
+                  that.setData({
+                     employer: employer
+                  });
+                }else{
+                  util.showModal(obj.msg);
+                } 
+               
               } else {
                 util.showToast("上传失败");
               }
@@ -77,22 +107,31 @@ Page({
           util.showLoading("上传中...");
           var localPath = tempFilePaths[0];
           wx.uploadFile({
-            url: config.api_upload_file,
+            url: config.api_upload_storePhoto,
             filePath: tempFilePaths[0],
             name: 'file',
             formData: {
-              'user': 'test'
+              'uid': util.getUID()
             },
             success: function (res) {
               util.hideLoading();
               if (res.statusCode == 200) {
-                console.log("upload success")
-                util.showToast("上传成功");
-                var data = res.data;
-                //do something
-                that.setData({
-                  cardPicP: localPath
-                });
+                var obj = JSON.parse(res.data);
+
+                if (obj.code == 0) {
+                  console.log("upload success")
+                  util.showToast("上传成功");
+                  // update local
+                  var storePhoto = obj.storePhoto;
+                  var employer = that.data.employer;
+                  employer.storePhoto = obj.storePhoto;
+                  that.setData({
+                    employer: employer
+                  });
+                } else {
+                  util.showModal(obj.msg);
+                }
+
               } else {
                 util.showToast("上传失败");
               }

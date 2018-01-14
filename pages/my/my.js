@@ -1,5 +1,5 @@
-
-var util=require('../../utils/util.js')
+var api = require('../../utils/api.js')
+var util = require('../../utils/util.js')
 
 Page({
     data:{
@@ -34,9 +34,16 @@ Page({
     },
 
     erAuthClick: function(){
-      wx.navigateTo({
-        url: '../erAuth/erAuth',
-      })
+      // 登录 
+      if (!util.getUID()) {
+        util.checkUserInfoAuth(function () {
+          api.login();
+        })
+      }else{ 
+        wx.navigateTo({
+          url: '../erAuth/erAuth',
+        })
+      }
     },
 
     myPublishClick: function(){

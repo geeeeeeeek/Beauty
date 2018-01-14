@@ -4,6 +4,8 @@ var appPath='http://localhost:8080';
 //图片资源
 var baseAvatar = appPath+'/upload/avatar/';
 var baseWorksUrl = appPath+'/upload/works/';
+var baseLicenseUrl = appPath+'/upload/license/';
+var baseStoreUrl = appPath+'/upload/storePhoto/';
 var img220=appPath+'/upload/img_220';
 var img800=appPath+'/upload/img_800';
 
@@ -11,6 +13,7 @@ var img800=appPath+'/upload/img_800';
 var api_get_all_employee=appPath+'/api/employee/all';
 var api_get_one_employee = appPath + '/api/employee/one';
 var api_get_one_uid = appPath + '/api/uid/one';
+var api_get_one_employer = appPath + '/api/employer/one';
 
 var api_get_all_product=appPath+'/api/product/all';
 var api_get_hot_product=appPath+'/api/product/hot';
@@ -24,19 +27,23 @@ var api_send_one_pv=appPath+'/api/pv/one';
 var api_get_all_book=appPath+'/api/book/all';
 var api_cancel_one_book=appPath+'/api/book/cancel'
 
-// 上传图像
-var api_upload_file = appPath + '/api/file/one';
+// api上传
+var api_upload_license = appPath + '/api/file/uploadLicense';
+var api_upload_storePhoto = appPath + '/api/file/uploadStorePhoto';
 
 
 module.exports = { 
     baseAvatar: baseAvatar,
     baseWorksUrl: baseWorksUrl,
+    baseLicenseUrl: baseLicenseUrl,
+    baseStoreUrl: baseStoreUrl,
     img220:img220,
     img800:img800,
 
     api_get_all_employee,
     api_get_one_employee,
     api_get_one_uid,
+    api_get_one_employer,
 
     api_get_all_product,
     api_get_hot_product,
@@ -49,8 +56,9 @@ module.exports = {
     api_send_one_pv,
     api_get_all_book,
     api_cancel_one_book,
-
-    api_upload_file,
+ 
+    api_upload_license,
+    api_upload_storePhoto,
     
     // 后台用户名
     mid:'100'

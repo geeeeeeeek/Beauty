@@ -7,10 +7,25 @@ function setUID(uid){
   wx.setStorageSync("uid", uid);
 }
 
-function checkLogin(){
-  var uid = getUID();
-}
 
+// 用户状态授权
+function checkUserInfoAuth(su){ 
+  wx.authorize({
+    scope: 'scope.userInfo',
+    success: su,
+    fail: function(){
+      console.log("-->auth fail");
+      wx.openSetting({
+        success: function(res){ 
+          res.authSetting = {
+            "scope.userInfo": true,
+            "scope.userLocation": true
+          }
+        }
+      })
+    }
+  })
+}
 
 
 function formatTime(date) {
@@ -138,7 +153,7 @@ function com(){
 module.exports = {
   getUID: getUID,
   setUID: setUID,
-  checkLogin: checkLogin,
+  checkUserInfoAuth: checkUserInfoAuth,
   formatTime: formatTime,
   formatTime2: formatTime2,
   printObj: printObj,
