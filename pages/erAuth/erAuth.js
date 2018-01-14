@@ -21,8 +21,12 @@ Page({
         return;
       }
 
-      if(!employer.region){
-        employer.region = new Array('广东省', '广州市','天河区');
+      // string转数组
+      if(employer.region){
+        var regionStr = employer.region;
+        employer.region = regionStr.split(",");
+      }else{
+        employer.region = new Array('广东省', '广州市', '天河区');        
       }
 
       that.setData({
@@ -37,6 +41,58 @@ Page({
     this.setData({
       employer: employer
     })
+  },
+
+  formSubmit: function (e) {
+    var that = this; 
+    
+    // wxml自动填充formData
+    var formData = e.detail.value; 
+    if (!that.isValid(formData)) {
+      return;
+    }
+    // start commit
+    var employer = that.data.employer;
+    // 数组转string
+    formData.regionStr = employer.region.join(",");
+    // 设置form的主键 
+    formData.uid = employer.uid;
+    
+    api.authEmployer(formData, function(res){
+        console.log(res.data)
+        if(res.data.code == 0){
+          // todo 
+        }else{
+          util.showModal('提交失败');
+        }
+    });
+
+  }, 
+
+  isValid: function (formData) {
+    var employer = this.data.employer;
+    if (formData.storeName == '') {
+      util.showModal("请输入门店名称");
+      return false;
+    } else if (formData.contact == '') {
+      util.showModal("请输入联系人");
+      return false;
+    } else if (formData.phone == '') {
+      util.showModal("请输入手机号");
+      return false;
+    } else if (formData.address == '') {
+      util.showModal("请输入详细地址");
+      return false;
+    }
+
+    if(!employer.license){
+      util.showModal("请上传营业执照");
+      return false;
+    }else if(!employer.storePhoto){
+      util.showModal("请上传门店照片");
+      return false;
+    }
+    return true;
   },
 
   bindLicensePic: function (e) {

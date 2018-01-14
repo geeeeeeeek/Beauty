@@ -118,6 +118,27 @@ function getEmployeeById(uid, su){
   })
 }
 
+// 认证店家信息
+function authEmployer(data, su){
+  util.showLoading('提交中');
+  var url = config.api_post_auth_employer;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
 /**
  * 发送pv
  */
@@ -392,6 +413,7 @@ module.exports={
   getAllEmployee,
   getEmployeeById,
   getOneEmployer,
+  authEmployer,
 
   getSwiperData:getSwiperData,
   getProductData:getProductData,
