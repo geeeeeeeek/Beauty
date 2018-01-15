@@ -17,21 +17,63 @@ Page({
     api.getOneEmployer(function(res){
       // get data
       var employer = res.data.employer;
-      if(!employer){
-        return;
+         
+      if (Object.keys(employer).length === 0) {
+        return; // 如果为空,返回
       }
 
       // string转数组
-      if(employer.region){
+      if(employer.region && employer.region.length > 0){
         var regionStr = employer.region;
         employer.region = regionStr.split(",");
       }else{
-        employer.region = new Array('广东省', '广州市', '天河区');        
+        employer.region = new Array('广东省', '广州市', '天河区');
       }
 
       that.setData({
         employer: employer
       })
+    })
+  },
+
+  // 失去焦点时存值
+  storeNameChange: function(e){
+    var employer = this.data.employer;
+    employer.storeName = e.detail.value;
+    this.setData({
+      employer: employer
+    }) 
+  },
+
+  contactChange: function (e) {
+    var employer = this.data.employer;
+    employer.contact = e.detail.value;
+    this.setData({
+      employer: employer
+    })
+  },
+
+  phoneChange: function (e) {
+    var employer = this.data.employer;
+    employer.phone = e.detail.value;
+    this.setData({
+      employer: employer
+    })
+  },
+
+  addressChange: function (e) {
+    var employer = this.data.employer;
+    employer.address = e.detail.value;
+    this.setData({
+      employer: employer
+    })
+  },
+
+  introduceChange: function (e) {
+    var employer = this.data.employer;
+    employer.introduce = e.detail.value;
+    this.setData({
+      employer: employer
     })
   },
 
@@ -56,12 +98,13 @@ Page({
     // 数组转string
     formData.regionStr = employer.region.join(",");
     // 设置form的主键 
-    formData.uid = employer.uid;
+    formData.uid = util.getUID();
     
     api.authEmployer(formData, function(res){
         console.log(res.data)
         if(res.data.code == 0){
           // todo 
+          console.log('commit success');
         }else{
           util.showModal('提交失败');
         }
