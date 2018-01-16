@@ -41,7 +41,7 @@
         <textarea class="text-area" name="introduce" placeholder="介绍下吧~ 140字以内" maxlength="140" bindblur="introduceChange" value="{{employer.introduce}}"/>
       </view>
     </view>
-    <view class="form-item-m m-mt-30">
+    <view class="form-item-m m-mt-30 {{licenseClass}}">
       <view class="form-item-m-label">营业执照<text class="star">*</text></view>
       <view class="form-item-m-val vc">
         <view class="m-icon-wrap cc" bindtap="bindLicensePic">
@@ -62,7 +62,7 @@
       </view>
     </view>
     <view class="cc">
-      <button formType="submit" class="form-submit cc" hover-class="form-submit-hover">提交审核</button>
+      <button formType="submit" class="form-submit cc" hover-class="form-submit-hover">{{submitText}}</button>
     </view>
   </form>
 </view>

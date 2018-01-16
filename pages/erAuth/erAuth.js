@@ -8,18 +8,44 @@ Page({
     baseStoreUrl: config.baseStoreUrl,
     employer: {
       region: ['广东省', '广州市', '天河区']
-    }
+    },
+    licenseClass:'',
+    submitText:'提交'
   },
 
-  onLoad: function () {
+  // 页面分为edit/auth edit页面不能编辑执照
+  onLoad: function (options) {
+    var page = options.page; // page--> edit/auth
     var that = this;
+    page = 'edit'
+    if (page == 'auth'){
+      that.setData({
+        page: page,
+        submitText: '提交审核'
+      })
+      wx.setNavigationBarTitle({
+        title: '门店认证'
+      })
+    } else if (page == 'edit'){
+      that.setData({
+        page: page,
+        submitText: '提交',
+        licenseClass: 'hide'
+      })
+      wx.setNavigationBarTitle({
+        title: '门店资料'
+      })
+    }else{
+      util.showModal('Type不能为空');
+    }
+
     console.log("-->" + util.getUID());
     api.getOneEmployer(function(res){
       // get data
       var employer = res.data.employer;
-         
+      // 如果为空,返回
       if (Object.keys(employer).length === 0) {
-        return; // 如果为空,返回
+        return;
       }
 
       // string转数组
@@ -36,7 +62,7 @@ Page({
     })
   },
 
-  // 失去焦点时存值
+  // ------------失去焦点时存值------------
   storeNameChange: function(e){
     var employer = this.data.employer;
     employer.storeName = e.detail.value;
@@ -85,6 +111,7 @@ Page({
     })
   },
 
+  // --------------提交----------------
   formSubmit: function (e) {
     var that = this; 
     
@@ -100,11 +127,10 @@ Page({
     // 设置form的主键 
     formData.uid = util.getUID();
     
-    api.authEmployer(formData, function(res){
+    api.commitEmployer(formData, function(res){
         console.log(res.data)
         if(res.data.code == 0){
-          // todo 
-          console.log('commit success');
+          util.showToast('提交成功');
         }else{
           util.showModal('提交失败');
         }

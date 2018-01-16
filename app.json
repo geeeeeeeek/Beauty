@@ -1,9 +1,9 @@
 {
-  "pages":[
-    "pages/erAuth/erAuth",    
+  "pages":[   
+    "pages/erAuth/erAuth",
+    "pages/erInfoEdit/erInfoEdit",
     "pages/employee/employee",    
     "pages/myYuyue/myYuyue",
-    "pages/erInfoEdit/erInfoEdit",
     "pages/myPublish/myPublish",
     "pages/my/my",
     "pages/eeAuth/eeAuth",

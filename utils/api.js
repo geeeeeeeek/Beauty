@@ -118,10 +118,10 @@ function getEmployeeById(uid, su){
   })
 }
 
-// 认证店家信息
-function authEmployer(data, su){
+// 店家信息
+function commitEmployer(data, su){
   util.showLoading('提交中');
-  var url = config.api_post_auth_employer;
+  var url = config.api_post_commit_employer;
   wx.request({
     url: url,
     method: 'POST',
@@ -134,7 +134,7 @@ function authEmployer(data, su){
       util.showFailModal();
     },
     complete: function () {
-      util.hideLoading();
+      
     }
   })
 }
@@ -413,7 +413,7 @@ module.exports={
   getAllEmployee,
   getEmployeeById,
   getOneEmployer,
-  authEmployer,
+  commitEmployer,
 
   getSwiperData:getSwiperData,
   getProductData:getProductData,

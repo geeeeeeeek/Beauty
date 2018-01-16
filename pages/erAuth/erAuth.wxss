@@ -160,3 +160,7 @@ image,view{
   background-color: #b39ddb;    
   opacity: 0.8;
 }
+
+.hide{
+  display: none;
+}
