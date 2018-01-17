@@ -1,12 +1,12 @@
 {
-  "pages":[   
+  "pages":[
+    "pages/eeAuth/eeAuth",
     "pages/employee/employee",    
     "pages/myYuyue/myYuyue",
     "pages/erAuth/erAuth",
     "pages/erInfoEdit/erInfoEdit",
     "pages/myPublish/myPublish",
     "pages/my/my",
-    "pages/eeAuth/eeAuth",
     "pages/eeInfoEdit/eeInfoEdit",
     "pages/eeDetail/eeDetail",    
     "pages/yuyueEdit/yuyueEdit",

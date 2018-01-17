@@ -43,3 +43,23 @@
 - introduce
 - license
 - storePhoto
+
+#### employee
+- uid
+- name
+- nickName
+- sex
+- age
+- height
+- weight
+- avatar
+- region
+- address
+- skill
+- score
+- praiseCount
+- likeCount
+- worksCount
+- spareTime
+- introduce
+- worksUrl

@@ -6,6 +6,10 @@ var baseAvatar = appPath+'/upload/avatar/';
 var baseWorksUrl = appPath+'/upload/works/';
 var baseLicenseUrl = appPath+'/upload/license/';
 var baseStoreUrl = appPath+'/upload/storePhoto/';
+var baseCardPUrl = appPath+'/upload/cardP/';
+var baseCardNUrl = appPath+'/upload/cardN/';
+var baseAvatarUrl = appPath+'/upload/avatar/';
+var baseCertificateUrl = appPath+'/upload/certificate/';
 var img220=appPath+'/upload/img_220';
 var img800=appPath+'/upload/img_800';
 
@@ -31,6 +35,10 @@ var api_cancel_one_book=appPath+'/api/book/cancel'
 // api上传
 var api_upload_license = appPath + '/api/file/uploadLicense';
 var api_upload_storePhoto = appPath + '/api/file/uploadStorePhoto';
+var api_upload_cardP = appPath + '/api/file/uploadCardP';
+var api_upload_cardN = appPath + '/api/file/uploadCardN';
+var api_upload_avatar = appPath + '/api/file/uploadAvatar';
+var api_upload_certificate = appPath + '/api/file/uploadCertificate';
 
 
 module.exports = { 
@@ -38,6 +46,10 @@ module.exports = {
     baseWorksUrl: baseWorksUrl,
     baseLicenseUrl: baseLicenseUrl,
     baseStoreUrl: baseStoreUrl,
+    baseCardPUrl: baseCardPUrl,
+    baseCardNUrl: baseCardNUrl,
+    baseAvatarUrl: baseAvatarUrl,
+    baseCertificateUrl: baseCertificateUrl,
     img220:img220,
     img800:img800,
 
@@ -61,6 +73,10 @@ module.exports = {
  
     api_upload_license,
     api_upload_storePhoto,
+    api_upload_cardP,
+    api_upload_cardN,
+    api_upload_avatar,
+    api_upload_certificate,
     
     // 后台用户名
     mid:'100'

@@ -3,7 +3,13 @@ var config = require('../../utils/config.js')
 
 Page({
   data: {
-    userInfo: null,
+    baseCardPUrl: config.baseCardPUrl,
+    baseCardNUrl: config.baseCardNUrl,
+    baseAvatarUrl: config.baseAvatarUrl,
+    baseCertificateUrl: config.baseCertificateUrl,
+    employee: {
+
+    },
     sexArray: ['女', '男'],
     sexIndex: 0,
     heightArray: [],
@@ -69,49 +75,57 @@ Page({
     })
   },
 
-  bindCardPicP: function (e) {
-    var that = this;
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'], // 原图/压缩图
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths;
-        if (tempFilePaths && tempFilePaths.length > 0) {
-          util.showLoading("上传中...");
-          var localPath = tempFilePaths[0];
-          wx.uploadFile({
-            url: config.api_upload_file, 
-            filePath: tempFilePaths[0],
-            name: 'file',
-            formData: {
-              'user': 'test'
-            },
-            success: function (res) {
-              util.hideLoading();
-              if(res.statusCode == 200){
-                console.log("upload success")
-                util.showToast("上传成功");                
-                var data = res.data; 
-                //do something
-                that.setData({
-                  cardPicP: localPath
-                });
-              }else{
-                util.showToast("上传失败");
-              }
-            },
-            fail: function(){
-              console.log("upload failed")              
-              util.hideLoading();
-              util.showToast("上传失败");              
-            }
-          })
-        }
 
-      }
+  // 上传正面
+  bindCardP: function (e) {
+    var that = this;
+    util.uploadFile(config.api_upload_cardP, function(obj){  
+      // update local
+      var employee = that.data.employee;
+      employee.cardP = obj.cardP;
+      that.setData({
+        employee: employee
+      });
     })
-  }
+  },
+
+  // 上传反面
+  bindCardN: function (e) {
+    var that = this;
+    util.uploadFile(config.api_upload_cardN, function (obj) {
+      // update local
+      var employee = that.data.employee;
+      employee.cardN = obj.cardN;
+      that.setData({
+        employee: employee
+      });
+    })
+  },
+
+  // 上传头像
+  bindAvatar: function (e) {
+    var that = this;
+    util.uploadFile(config.api_upload_avatar, function (obj) {
+      // update local
+      var employee = that.data.employee;
+      employee.avatar = obj.avatar;
+      that.setData({
+        employee: employee
+      });
+    })
+  },
+
+  // 上传证书
+  bindCertificate: function (e) {
+    var that = this;
+    util.uploadFile(config.api_upload_certificate, function (obj) {
+      // update local
+      var employee = that.data.employee;
+      employee.certificate = obj.certificate;
+      that.setData({
+        employee: employee
+      });
+    })
+  },
 
 })

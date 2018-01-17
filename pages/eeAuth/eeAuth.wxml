@@ -63,6 +63,12 @@
       </view>
     </view>
     <view class="form-item-p">
+      <view class="form-item-p-label">闲置时间<text class="star">*</text></view>
+      <view class="form-item-p-val vc">
+        <textarea class="text-area" placeholder="例如：下午14到18点" maxlength="140" value=""/>
+      </view>
+    </view>
+    <view class="form-item-p">
       <view class="form-item-p-label">自我介绍</view>
       <view class="form-item-p-val vc">
         <textarea class="text-area" placeholder="介绍下自己吧~ 140字以内" maxlength="140" value=""/>
@@ -77,9 +83,9 @@
     <view class="form-item-m">
       <view class="form-item-m-label">身份证正面照<text class="star">*</text></view>
       <view class="form-item-m-val vc">
-        <view class="m-icon-wrap cc" bindtap="bindCardPicP">
+        <view class="m-icon-wrap cc" bindtap="bindCardP">
           <image class="m-icon" src="../../images/icon_camera.png"/>
-          <image class="m-icon-pic" src="{{cardPicP}}"/>
+          <image class="m-icon-pic" src="{{baseCardPUrl}}{{employee.cardP}}"/>
         </view>
         <view class="m-tip">证件的姓名和证件号码需清晰可见，支持JPG,PNG格式图片且大小不超过2M。</view>
       </view>
@@ -87,9 +93,9 @@
     <view class="form-item-m">
       <view class="form-item-m-label">身份证背面照<text class="star">*</text></view>
       <view class="form-item-m-val vc">
-        <view class="m-icon-wrap cc">
+        <view class="m-icon-wrap cc" bindtap="bindCardN">
           <image class="m-icon" src="../../images/icon_camera.png"/>
-          <image class="m-icon-pic" src="{{cardPicN}}"/>
+          <image class="m-icon-pic" src="{{baseCardNUrl}}{{employee.cardN}}"/>
         </view>
         <view class="m-tip">证件的姓名和证件号码需清晰可见，支持JPG,PNG格式图片且大小不超过2M。</view>
       </view>
@@ -97,9 +103,9 @@
     <view class="form-item-m m-mt-30">
       <view class="form-item-m-label">上传头像<text class="star">*</text></view>
       <view class="form-item-m-val vc">
-        <view class="m-icon-wrap cc">
+        <view class="m-icon-wrap cc" bindtap="bindAvatar">
           <image class="m-icon" src="../../images/icon_camera.png"/>
-          <image class="m-icon-pic" src="{{cardPicN}}"/>
+          <image class="m-icon-pic" src="{{baseAvatarUrl}}{{employee.avatar}}"/>
         </view>
         <view class="m-tip">请上传个人清晰头像，支持JPG,PNG格式图片且大小不超过1M。</view>
       </view>
@@ -107,9 +113,9 @@
     <view class="form-item-m m-mt-30">
       <view class="form-item-m-label">个人证书</view>
       <view class="form-item-m-val vc">
-        <view class="m-icon-wrap cc">
+        <view class="m-icon-wrap cc" bindtap="bindCertificate">
           <image class="m-icon" src="../../images/icon_camera.png"/>
-          <image class="m-icon-pic" src="{{cardPicN}}"/>
+          <image class="m-icon-pic" src="{{baseCertificateUrl}}{{employee.certificate}}"/>
         </view>
         <view class="m-tip">技能证书、获奖证书、或工作证均可。支持JPG,PNG格式图片且大小不超过1M。</view>
       </view>

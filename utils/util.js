@@ -27,6 +27,53 @@ function checkUserInfoAuth(su){
   })
 }
 
+// 上传文件
+function uploadFile(url, su){
+  wx.chooseImage({
+    count: 1,
+    sizeType: ['original', 'compressed'], // 原图/压缩图
+    sourceType: ['album', 'camera'],
+    success: function (res) {
+      // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+      var tempFilePaths = res.tempFilePaths;
+      if (tempFilePaths && tempFilePaths.length > 0) {
+        showLoading("上传中...");
+        var localPath = tempFilePaths[0];
+        wx.uploadFile({
+          url: url,
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+            'uid': getUID()
+          },
+          success: function (res) {
+            hideLoading();
+            console.log("res-->" + JSON.stringify(res));
+            if (res.statusCode == 200) {
+              var obj = JSON.parse(res.data);
+
+              if (obj.code == 0) {
+                su(obj);
+              } else {
+                showModal(obj.msg);
+              }
+
+            } else {
+              showToast("上传失败");
+            }
+          },
+          fail: function () {
+            console.log("upload failed")
+            hideLoading();
+            showToast("上传失败");
+          }
+        })
+      }
+
+    }
+  })
+}
+
 
 function formatTime(date) {
   var year = date.getFullYear()
@@ -154,6 +201,7 @@ module.exports = {
   getUID: getUID,
   setUID: setUID,
   checkUserInfoAuth: checkUserInfoAuth,
+  uploadFile: uploadFile,
   formatTime: formatTime,
   formatTime2: formatTime2,
   printObj: printObj,
