@@ -17,7 +17,7 @@ Page({
   onLoad: function (options) {
     var page = options.page; // page--> edit/auth
     var that = this;
-    page = 'edit'
+    
     if (page == 'auth'){
       that.setData({
         page: page,

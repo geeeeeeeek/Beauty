@@ -23,7 +23,7 @@ Page({
 
     erInfoClick: function () {
       wx.navigateTo({
-        url: '../erInfoEdit/erInfoEdit',
+        url: '../erAuth/erAuth?page=edit',        
       })
     },
 
@@ -41,7 +41,7 @@ Page({
         })
       }else{ 
         wx.navigateTo({
-          url: '../erAuth/erAuth',
+          url: '../erAuth/erAuth?page=auth',
         })
       }
     },

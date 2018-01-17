@@ -9,6 +9,7 @@
 - 测试/正式环境
 - php.ini 上传文件大小
 - DB定时拷贝
+- 做好自测
 
 #### 表 employee
 - uid
@@ -32,7 +33,7 @@
 - openId
 - time
 
-#### er
+#### employer
 - uid
 - storeName
 - contact
