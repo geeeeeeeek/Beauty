@@ -1,5 +1,6 @@
 var util = require('../../utils/util.js')
 var config = require('../../utils/config.js')
+var api = require('../../utils/api.js')
 
 Page({
   data: {
@@ -7,76 +8,174 @@ Page({
     baseCardNUrl: config.baseCardNUrl,
     baseAvatarUrl: config.baseAvatarUrl,
     baseCertificateUrl: config.baseCertificateUrl,
-    employee: {
-
-    },
     sexArray: ['女', '男'],
-    sexIndex: 0,
     heightArray: [],
-    heightIndex: 0,
     weightArray: [],
-    weightIndex: 0,
-    region: ['广东省', '广州市', '天河区'],
-    cardPicP: null,
-    cardPicN: null
+    authClass: '',
+    editClass: 'hide',
+    employee: {
+      region: ['广东省', '广州市', '天河区'],
+      sex: 0,
+      height: 160,
+      weight: 50
+    }
   },
 
   onLoad: function () {
+    var that = this;
     this.initHeightArray();
     this.initWeightArray();
+
+    console.log("-->" + util.getUID());
+    api.getEmployeeById(function (res) { 
+      var employee = res.data.employee; 
+      if (Object.keys(employee).length === 0) {
+        return;
+      }
+
+      // init region
+      if (employee.region && employee.region.length > 0) {
+        var regionStr = employee.region;
+        employee.region = regionStr.split(",");
+      } else {
+        employee.region = new Array('广东省', '广州市', '天河区');
+      }
+
+      // init sex
+      if(!employee.sex){
+        employee.sex = 0;
+      }
+
+      // init height
+      if(!employee.height){
+        employee.height = 160;
+      }
+
+      // init weight
+      if(!employee.weight){
+        employee.weight = 50;
+      }
+
+      that.setData({
+        employee: employee
+      })
+    })
   },
 
-  // 初始化身高数组
+  // --------------提交----------------
+  formSubmit: function (e) {
+    var that = this;
+
+    // wxml自动填充formData
+    var formData = e.detail.value;
+    if (!that.isValid(formData)) {
+      return;
+    }
+    // start commit
+    var employee = that.data.employee;
+    // 数组转string
+    formData.regionStr = employee.region.join(",");
+    // 设置form的主键 
+    formData.uid = util.getUID();
+
+    api.authEmployee(formData, function (res) {
+      console.log(res.data)
+      if (res.data.code == 0) {
+        util.showToast('提交成功');
+      } else {
+        util.showModal('提交失败');
+      }
+    });
+
+  }, 
+
+
+  isValid: function (formData) {
+    var employee = this.data.employee;
+    if (formData.name == '') {
+      util.showModal("请输入姓名");
+      return false;
+    } else if (formData.phone == '') {
+      util.showModal("请输入手机号");
+      return false;
+    }  
+
+    if (!employee.cardP) {
+      util.showModal("请上传身份证正面");
+      return false;
+    } else if (!employee.cardN) {
+      util.showModal("请上传身份证反面");
+      return false;
+    } else if (!employee.avatar) {
+      util.showModal("请上传头像");
+      return false;
+    }
+    return true;
+  },
+
+  // ----------------init data-------------------
   initHeightArray: function () {
     var arr = new Array();
-    for (var i = 140; i <= 200; i++) {
+    for (var i = 0; i <= 200; i++) {
       arr.push(i);
-    }
+    } 
+    var employee = this.data.employee;
+    employee.height = 160;
     this.setData({
       heightArray: arr,
-      heightIndex: 20
+      employee: employee
     })
   },
-
-  // 初始化体重数组
+ 
   initWeightArray: function () {
     var arr = new Array();
-    for (var i = 30; i <= 100; i++) {
+    for (var i = 0; i <= 100; i++) {
       arr.push(i);
     }
+    var employee = this.data.employee;
+    employee.weight = 50;
     this.setData({
       weightArray: arr,
-      weightIndex: 20
+      employee: employee
     })
   },
 
 
+  // ----------------picker-----------------
   bindSexPickerChange: function (e) {
+    var employee = this.data.employee;
+    employee.sex = e.detail.value;    
     this.setData({
-      sexIndex: e.detail.value
+      employee: employee
     })
   },
 
   bindHeightPickerChange: function (e) {
+    var employee = this.data.employee;
+    employee.height = e.detail.value;
     this.setData({
-      heightIndex: e.detail.value
+      employee: employee
     })
   },
 
   bindWeightPickerChange: function (e) {
+    var employee = this.data.employee;
+    employee.weight = e.detail.value;
     this.setData({
-      weightIndex: e.detail.value
+      employee: employee
     })
   },
 
   bindRegionPickerChange: function (e) {
+    var employee = this.data.employee;
+    employee.region = e.detail.value;
     this.setData({
-      region: e.detail.value
+      employee: employee
     })
   },
 
 
-  // 上传正面
+  // -------------------upload-----------------
   bindCardP: function (e) {
     var that = this;
     util.uploadFile(config.api_upload_cardP, function(obj){  
@@ -88,8 +187,7 @@ Page({
       });
     })
   },
-
-  // 上传反面
+ 
   bindCardN: function (e) {
     var that = this;
     util.uploadFile(config.api_upload_cardN, function (obj) {
@@ -101,8 +199,7 @@ Page({
       });
     })
   },
-
-  // 上传头像
+ 
   bindAvatar: function (e) {
     var that = this;
     util.uploadFile(config.api_upload_avatar, function (obj) {
@@ -114,8 +211,7 @@ Page({
       });
     })
   },
-
-  // 上传证书
+ 
   bindCertificate: function (e) {
     var that = this;
     util.uploadFile(config.api_upload_certificate, function (obj) {

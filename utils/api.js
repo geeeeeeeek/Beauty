@@ -86,7 +86,7 @@ function getAllEmployee(uid, su){
     url: url,
     method: 'GET',
     data: {
-      uid: uid
+      uid: util.getUID()
     },
     success: su,
     fail: function () {
@@ -99,14 +99,14 @@ function getAllEmployee(uid, su){
 }
 
 // 获取技师详情
-function getEmployeeById(uid, su){
+function getEmployeeById(su){
   util.showLoading();
   var url = config.api_get_one_employee;
   wx.request({
     url: url,
     method: 'GET',
     data: {
-      uid: uid
+      uid: util.getUID()
     },
     success: su,
     fail: function () {
@@ -135,6 +135,27 @@ function commitEmployer(data, su){
     },
     complete: function () {
       
+    }
+  })
+}
+
+// 认证技师
+function authEmployee(data, su) {
+  util.showLoading('提交中');
+  var url = config.api_post_auth_employee;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
     }
   })
 }
@@ -414,6 +435,7 @@ module.exports={
   getEmployeeById,
   getOneEmployer,
   commitEmployer,
+  authEmployee,
 
   getSwiperData:getSwiperData,
   getProductData:getProductData,

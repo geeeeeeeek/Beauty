@@ -19,6 +19,7 @@ var api_get_one_employee = appPath + '/api/employee/one';
 var api_get_one_uid = appPath + '/api/uid/one';
 var api_get_one_employer = appPath + '/api/employer/one';
 var api_post_commit_employer = appPath + '/api/employer/commit';
+var api_post_auth_employee = appPath + '/api/employee/auth';
 
 var api_get_all_product=appPath+'/api/product/all';
 var api_get_hot_product=appPath+'/api/product/hot';
@@ -58,6 +59,7 @@ module.exports = {
     api_get_one_uid,
     api_get_one_employer,
     api_post_commit_employer,
+    api_post_auth_employee,
 
     api_get_all_product,
     api_get_hot_product,

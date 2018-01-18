@@ -144,6 +144,7 @@ image,view{
 
 .form-submit{
   width: 100%;
+  height: 80rpx;
   background-color: #b39ddb;  
   color: #ffffff;
   font-size: 16px;
@@ -158,4 +159,8 @@ image,view{
 .form-submit-hover{
   background-color: #b39ddb;    
   opacity: 0.8;
+}
+
+.hide{
+  display: none;
 }

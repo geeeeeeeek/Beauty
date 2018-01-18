@@ -46,13 +46,19 @@
 
 #### employee
 - uid
+- status 
 - name
 - nickName
+- phone
+- card 
 - sex
 - age
 - height
 - weight
 - avatar
+- cardP
+- cardN
+- certificate
 - region
 - address
 - skill
