@@ -10,11 +10,9 @@ Page({
     },
 
     onLoad:function(){
-        var that=this;
+        var that=this; 
 
-        var uid = 'haha';
-
-        api.getAllEmployee(uid, function(res){ 
+        api.getAllEmployee(function(res){ 
           util.printObj("employees", res.data); 
 
           that.setData({
@@ -30,20 +28,7 @@ Page({
           util.checkUserInfoAuth(function () {
             api.login();
           })
-        }
-
-        wx.requestPayment({
-          timeStamp: '',
-          nonceStr: '',
-          package: '',
-          signType: '',
-          paySign: '',
-          success: function (res) {
-          },
-          fail: function (res) {
-          
-          }
-        })
+        } 
         
     },
  
@@ -74,8 +59,9 @@ Page({
 
     //去预约页面
     yyClick(e){ 
+      var ds = e.currentTarget.dataset;      
       wx.navigateTo({
-        url: '../yuyueEdit/yuyueEdit'
+        url: '../yuyueEdit/yuyueEdit?id='+ds.id
       })
     }
 })

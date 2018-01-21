@@ -19,7 +19,7 @@
                 </view>
                 <view class="item-score">信誉度：{{employee.score? employee.score:'1.0'}}分</view> 
                 <view>
-                    <button class="item-yuyue-btn theme-btn-color cc" hover-class="btn-hover" data-id="{{staff.s_id}}" catchtap="yyClick">预约</button>
+                    <button class="item-yuyue-btn theme-btn-color cc" hover-class="btn-hover" data-id="{{employee.uid}}" catchtap="yyClick">预约</button>
                 </view> 
             </view>
         </view>  

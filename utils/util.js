@@ -1,10 +1,20 @@
 
+// 登录后的uid
 function getUID(){
   return wx.getStorageSync("uid");
 }
 
 function setUID(uid){
   wx.setStorageSync("uid", uid);
+}
+
+// sign签名
+function getSign() {
+  return wx.getStorageSync("sign");
+}
+
+function setSign(sign) {
+  wx.setStorageSync("sign", sign);
 }
 
 
@@ -179,7 +189,7 @@ function getCurrentDate(){
   var d = new Date();
   var year = d.getFullYear();
   var month = d.getMonth() + 1;
-  var day = d.getDay();
+  var day = d.getDate();
   if(month < 10){
     month = "0" + month;
   }
@@ -200,6 +210,8 @@ function com(){
 module.exports = {
   getUID: getUID,
   setUID: setUID,
+  getSign: getSign,
+  setSign: setSign,
   checkUserInfoAuth: checkUserInfoAuth,
   uploadFile: uploadFile,
   formatTime: formatTime,

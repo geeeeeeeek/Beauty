@@ -51,7 +51,9 @@ image,view{
 }
 
 .picker-left{
-  flex: 1;
+  flex: 1; 
+  color: #333;
+  font-size: 14px;
 }
 
 .icon-right{
@@ -111,6 +113,7 @@ image,view{
 .m-icon-wrap{
   width: 120rpx;
   height: 120rpx;
+  margin: 8rpx;
   background-color: #bdbdbd;
   border: 2rpx #e0e0e0 solid;
   border-radius: 8rpx;

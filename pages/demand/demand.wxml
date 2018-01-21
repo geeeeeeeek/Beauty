@@ -1,20 +1,27 @@
 <!--index.wxml-->
 <view class="page">
+  <block wx:for="{{demands}}" wx:for-item="demand" wx:key="">
   <view class="list-item" bindtap="bindItemClick">
       <view class="list-item-left">
-          <image class="list-item-left-icon" src="http://p3.pstatp.com/origin/40330002390297c1a730?version={{version}}"></image>
+          <image class="list-item-left-icon" src="{{baseStoreUrl}}{{demand.storePhoto}}"></image>
       </view>
       <view class="list-item-right">
-          <view class="item-title">美容美甲1小时</view>
+          <view class="item-title">{{demand.title}}</view>
           <view class="item-time">
-            <text>2017-10-10 09:30</text>
-            <text class="item-time-duration">120分钟</text>
+            <text>{{demand.startTime}}</text>
+            <text class="item-time-duration">{{demand.duration}}分钟</text>
           </view> 
-          <view class="item-address">广州市花园路8号</view>
-          <view class="item-price">200元</view>
+          <view class="item-address">{{demand.region}}</view>
+          <view class="item-price">{{demand.price}}元</view>
           <view>
               <button class="item-yuyue-btn theme-btn-color cc" hover-class="btn-hover" data-id="{{staff.s_id}}" catchtap="bindTakeOrder">接单</button>
           </view> 
       </view>
-  </view>   
+  </view> 
+  </block>
+  <view class="icon-wrap" bindtap='bindTapPublish'>
+    <image class="icon-publish" src='../../images/icon_publish.png'></image>
+  </view>
 </view>
+
+ 

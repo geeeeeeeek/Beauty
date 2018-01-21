@@ -8,11 +8,13 @@ Page({
     baseCardNUrl: config.baseCardNUrl,
     baseAvatarUrl: config.baseAvatarUrl,
     baseCertificateUrl: config.baseCertificateUrl,
+    baseWorkUrl: config.baseWorkUrl,
     sexArray: ['女', '男'],
     heightArray: [],
     weightArray: [],
     authClass: '',
     editClass: 'hide',
+    submitText: '提交',
     employee: {
       region: ['广东省', '广州市', '天河区'],
       sex: 0,
@@ -21,12 +23,38 @@ Page({
     }
   },
 
-  onLoad: function () {
+  onLoad: function (options) {
     var that = this;
     this.initHeightArray();
     this.initWeightArray();
+ 
+    // -----------------page---------------------
+    var page = options.page; // page--> edit/auth  
+     
+    if (page == 'auth') {
+      that.setData({
+        page: page,
+        submitText: '提交审核',
+        editClass: 'hide'
+      })
+      wx.setNavigationBarTitle({
+        title: '技师认证'
+      })
+    } else if (page == 'edit') {
+      that.setData({
+        page: page,
+        submitText: '提交',
+        authClass: 'hide'
+      })
+      wx.setNavigationBarTitle({
+        title: '个人资料'
+      })
+    } else {
+      util.showModal('Type不能为空');
+    }
 
     console.log("-->" + util.getUID());
+    // ---------------------getEmployee-----------------------
     api.getEmployeeById(function (res) { 
       var employee = res.data.employee; 
       if (Object.keys(employee).length === 0) {
@@ -62,6 +90,19 @@ Page({
     })
   },
 
+  // 相当于onResume
+  onShow: function(){
+    var app = getApp();
+    // after choose skill
+    if(app.cache.skillStr && app.cache.skillStr.length > 0){
+      var employee = this.data.employee;
+      employee.skill = app.cache.skillStr;
+      this.setData({
+        employee: employee
+      })
+    }
+  },
+
   // --------------提交----------------
   formSubmit: function (e) {
     var that = this;
@@ -77,6 +118,7 @@ Page({
     formData.regionStr = employee.region.join(",");
     // 设置form的主键 
     formData.uid = util.getUID();
+    formData.sign = util.getSign();
 
     api.authEmployee(formData, function (res) {
       console.log(res.data)
@@ -136,6 +178,64 @@ Page({
     employee.weight = 50;
     this.setData({
       weightArray: arr,
+      employee: employee
+    })
+  },
+
+
+  // ----------------blur------------------
+  nameChange: function (e) {
+    var employee = this.data.employee;
+    employee.name = e.detail.value;
+    this.setData({
+      employee: employee
+    })
+  },
+
+  nickNameChange: function (e) {
+    var employee = this.data.employee;
+    employee.nickName = e.detail.value;
+    this.setData({
+      employee: employee
+    })
+  },
+
+  phoneChange: function (e) {
+    var employee = this.data.employee;
+    employee.phone = e.detail.value;
+    this.setData({
+      employee: employee
+    })
+  },
+
+  ageChange: function (e) {
+    var employee = this.data.employee;
+    employee.age = e.detail.value;
+    this.setData({
+      employee: employee
+    })
+  },
+
+  spareTimeChange: function (e) {
+    var employee = this.data.employee;
+    employee.spareTime = e.detail.value;
+    this.setData({
+      employee: employee
+    })
+  },
+
+  introduceChange: function (e) {
+    var employee = this.data.employee;
+    employee.introduce = e.detail.value;
+    this.setData({
+      employee: employee
+    })
+  },
+
+  cardChange: function (e) {
+    var employee = this.data.employee;
+    employee.card = e.detail.value;
+    this.setData({
       employee: employee
     })
   },
@@ -223,5 +323,49 @@ Page({
       });
     })
   },
+
+  bindWorkOne: function (e) {
+    var that = this;
+    util.uploadFile(config.api_upload_workone, function (obj) {
+      // update local
+      var employee = that.data.employee;
+      employee.workOneUrl = obj.workOneUrl;
+      that.setData({
+        employee: employee
+      });
+    })
+  },
+
+  bindWorkTwo: function (e) {
+    var that = this;
+    util.uploadFile(config.api_upload_worktwo, function (obj) {
+      // update local
+      var employee = that.data.employee;
+      employee.workTwoUrl = obj.workTwoUrl;
+      that.setData({
+        employee: employee
+      });
+    })
+  },
+
+  bindWorkThree: function (e) {
+    var that = this;
+    util.uploadFile(config.api_upload_workthree, function (obj) {
+      // update local
+      var employee = that.data.employee;
+      employee.workThreeUrl = obj.workThreeUrl;
+      that.setData({
+        employee: employee
+      });
+    })
+  },
+
+  // -------------------tap-----------------
+  tapSkill: function(e){
+    var employee = this.data.employee;
+    wx.navigateTo({
+      url: '../chooseSkill/chooseSkill?skillStr='+employee.skill,
+    })
+  }
 
 })

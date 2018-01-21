@@ -3,6 +3,10 @@ var config=require('utils/config.js')
 var util=require('utils/util.js')
 
 App({
+  cache: {
+    skillStr: ''
+  },
+  
   onLaunch: function () {
      
   } 

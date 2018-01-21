@@ -13,7 +13,7 @@
         <text>好评</text>
       </view>
       <view class="header-remark-item cc">
-        <text>{{employee.worksCount? employee.worksCount:0}}</text>
+        <text>{{workCount}}</text>
         <text>作品</text>
       </view>
       <view class="header-remark-item cc">
@@ -43,20 +43,30 @@
     <view class="content-item cc">
       <view class="tag-p">作品展示</view>
       <view class="list">
-        <block wx:for="{{employee.worksUrl}}" wx:for-item="url" wx:key="">
+        <block wx:if="{{employee.workOneUrl}}">
           <view class="list-item">
-          <image mode="aspectFill" src="{{baseWorksUrl}}{{url}}"></image>
-        </view> 
-        </block> 
+            <image mode="aspectFill" src="{{baseWorkUrl}}{{employee.workOneUrl}}"></image>
+          </view> 
+        </block>
+        <block wx:if="{{employee.workTwoUrl}}">
+          <view class="list-item">
+            <image mode="aspectFill" src="{{baseWorkUrl}}{{employee.workTwoUrl}}"></image>
+          </view> 
+        </block>
+        <block wx:if="{{employee.workThreeUrl}}">
+          <view class="list-item">
+            <image mode="aspectFill" src="{{baseWorkUrl}}{{employee.workThreeUrl}}"></image>
+          </view> 
+        </block>
       </view>
     </view>
   </view>
 
 
   <view class="float-view">
-    <view class="float-view-yuyue cc">预约</view>
+    <view class="float-view-yuyue cc" data-id='{{employee.uid}}' bindtap='yuyueClick'>预约</view>
     <view class="float-view-remark cc">投诉</view>
-    <view class="float-view-like cc">
+    <view class="float-view-like cc" data-id='{{employee.uid}}' bindtap='likeClick'>
       <image class="float-view-like-icon" src="../../images/icon_like.png"></image>
     </view>
   </view>

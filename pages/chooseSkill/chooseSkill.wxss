@@ -1,47 +1,23 @@
 page{
     height: 100%;
-    background-color: #fff;
+    background-color: #f5f5f5;
 }
 .page{
    font-family:  "PingFang SC","Microsoft YaHei",Arial,sans-serif; 
-   background-color: #fff;
+   background-color: #f5f5f5;
     height: 100%;
 }
 
 image,view{
-  /*border:1px #f00 solid;*/
+  /* border:1px #f00 solid; */
 }
 
-
-.form-item{
-  padding: 20rpx 20rpx;
-  border-bottom: 1rpx #f5f5f5 solid;
-  display: flex;
-  flex-direction: row;
+.checkbox-group{
+  margin: 20rpx;
 }
 
-.form-item-label{
-  color:#333;
-  font-size: 14px;
-  flex: 1;
-} 
-
-.form-item-val{
-  flex: 2;
-  display: flex;
-  flex-direction: row;
-}
-
-.form-item-input{
-  color:#333; 
-  font-size: 14px;
-  width:100%;
-}
-
-.picker{
-  color: #333;
-  font-size: 14px;
-  flex:1; 
+.checkbox{
+  display: block;
 }
 
 .form-submit{

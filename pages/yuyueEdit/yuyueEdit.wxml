@@ -3,7 +3,7 @@
     <view class="form-item vc">
       <view class="form-item-label">预约项目</view>
       <view class="form-item-val">
-        <input class="form-item-input" placeholder="请输入项目" value="" maxlength="16" type="text" />
+        <input class="form-item-input" name='title' placeholder="请输入项目" value="" maxlength="16" type="text" />
       </view>
     </view>
     <view class="form-item vc">
@@ -20,17 +20,17 @@
     <view class="form-item vc">
       <view class="form-item-label">服务时长(分钟)</view>
       <view class="form-item-val">
-        <input class="form-item-input" placeholder="服务时长" value="" maxlength='8' type="number" />
+        <input class="form-item-input" name='duration' placeholder="服务时长" value="" maxlength='8' type="number" />
       </view>
     </view>
     <view class="form-item vc">
       <view class="form-item-label">价格(元)</view>
       <view class="form-item-val">
-        <input class="form-item-input" placeholder="请输入价格" value="" maxlength='10' type="number"/>
+        <input class="form-item-input" name='price' placeholder="请输入价格" value="" maxlength='10' type="number"/>
       </view>
     </view>
     <view class="cc">
-      <view formType="submit" class="form-submit cc" hover-class="form-submit-hover">立即预约</view>
+      <button formType="submit" class="form-submit cc" hover-class="form-submit-hover">立即预约</button>
     </view>
   </form>
 </view>

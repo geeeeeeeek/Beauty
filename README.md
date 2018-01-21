@@ -31,6 +31,8 @@
 #### user
 - uid
 - openId
+- sign
+- status // 0无 1技师 2店家 3都是 todo 
 - time
 
 #### employer
@@ -69,3 +71,13 @@
 - spareTime
 - introduce
 - worksUrl
+
+#### order
+- eeUid
+- erUid
+- title
+- startTime
+- duration
+- price
+- status // 订单状态 0 1 2
+- time

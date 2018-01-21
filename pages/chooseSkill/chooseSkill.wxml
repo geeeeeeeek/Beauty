@@ -1,0 +1,10 @@
+<view class="page">
+    <checkbox-group class="checkbox-group" bindchange="checkboxChange">
+    <label class="checkbox" wx:for="{{skills}}" wx:key="item">
+      <checkbox value="{{item.skillName}}" checked="{{item.checked}}"/>{{item.skillName}}
+    </label>
+  </checkbox-group> 
+  <view class="cc">
+      <button bindtap='commit' class="form-submit cc" hover-class="form-submit-hover">确定</button>
+    </view>
+</view>

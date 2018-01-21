@@ -13,7 +13,7 @@ image,view{
 }
 
 .page-header{
-  background-color: #aa00ff;
+  background-color: #ff8a80;
 }
 
 
@@ -80,6 +80,7 @@ image,view{
 
 .float-view-yuyue{
   flex:2;
+  background-color: #ef5350;  
 }
 
 .float-view-remark{
@@ -97,7 +98,7 @@ image,view{
 }
 
 .tag-p{
-  background-color: #aa00ff;  
+  background-color: #ff8a80;  
   color: #ffffff;
   font-size: 14px;
   height: 56rpx; 

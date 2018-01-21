@@ -13,24 +13,49 @@ Page({
                 userInfo:userInfo
             })
         }
-    },
 
-    eeInfoClick: function(){
-      wx.navigateTo({
-        url: '../eeInfoEdit/eeInfoEdit',
-      })
+        // 登录 
+        if (!util.getUID()) {
+          util.checkUserInfoAuth(function () {
+            api.login();
+          })
+        }
     },
 
     erInfoClick: function () {
-      wx.navigateTo({
-        url: '../erAuth/erAuth?page=edit',        
-      })
+      if (!util.getUID()) {
+        util.checkUserInfoAuth(function () {
+          api.login();
+        })
+      }else{
+        wx.navigateTo({
+          url: '../erAuth/erAuth?page=edit',
+        })
+      }
     },
 
     eeAuthClick: function(){
-      wx.navigateTo({
-        url: '../eeAuth/eeAuth',
-      })
+      if (!util.getUID()) {
+        util.checkUserInfoAuth(function () {
+          api.login();
+        })
+      }else{
+        wx.navigateTo({
+          url: '../eeAuth/eeAuth?page=auth'
+        })
+      }
+    },
+
+    eeInfoClick: function () {
+      if (!util.getUID()) {
+        util.checkUserInfoAuth(function () {
+          api.login();
+        })
+      }else{
+        wx.navigateTo({
+          url: '../eeAuth/eeAuth?page=edit'
+        })
+      }
     },
 
     erAuthClick: function(){

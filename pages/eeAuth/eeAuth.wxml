@@ -3,25 +3,25 @@
     <view class="form-item vc {{authClass}}">
       <view class="form-item-label">姓名<text class="star">*</text></view>
       <view class="form-item-val">
-        <input class="form-item-input" name="name" placeholder="请输入姓名" value="{{employee.name}}" maxlength="16" type="text" />
+        <input class="form-item-input" bindblur="nameChange" name="name" placeholder="请输入姓名" value="{{employee.name}}" maxlength="16" type="text" />
       </view>
     </view>
-    <view class="form-item vc {{authClass}}">
+    <view class="form-item vc">
       <view class="form-item-label">昵称<text class="star">*</text></view>
       <view class="form-item-val">
-        <input class="form-item-input" name="nickName" placeholder="请输入昵称" value="{{employee.nickName}}" maxlength="11" type="text" />
+        <input class="form-item-input" bindblur='nickNameChange' name="nickName" placeholder="请输入昵称" value="{{employee.nickName}}" maxlength="11" type="text" />
       </view>
     </view>
     <view class="form-item vc">
       <view class="form-item-label">手机号<text class="star">*</text></view>
       <view class="form-item-val">
-        <input class="form-item-input" name="phone" placeholder="请输入手机号" value="{{employee.phone}}" maxlength="11" type="number" />
+        <input class="form-item-input" bindblur='phoneChange' name="phone" placeholder="请输入手机号" value="{{employee.phone}}" maxlength="11" type="number" />
       </view>
     </view>
     <view class="form-item vc {{authClass}}">
       <view class="form-item-label">年龄<text class="star">*</text></view>
       <view class="form-item-val">
-        <input class="form-item-input" name="age" placeholder="请输入年龄" value="{{employee.age}}" maxlength="3" type="number" />
+        <input class="form-item-input" bindblur='ageChange' name="age" placeholder="请输入年龄" value="{{employee.age}}" maxlength="3" type="number" />
       </view>
     </view>
     <view class="form-item vc {{authClass}}">
@@ -58,6 +58,15 @@
       </view>
     </view>
     <view class="form-item vc {{authClass}}">
+      <view class="form-item-label">擅长技能<text class="star">*</text></view>
+      <view class="form-item-val vc"> 
+          <view class="picker-left"> 
+           <input class="form-item-input" bindtap='tapSkill' bindblur='skillChange' name="skill" placeholder="请选择技能" value="{{employee.skill}}" disabled='true'/>
+          </view> 
+        <image class="icon-right" src="../../images/icon_rightgo.png"/>
+      </view>
+    </view>
+    <view class="form-item vc {{authClass}}">
       <view class="form-item-label">工作地区<text class="star">*</text></view>
       <view class="form-item-val vc">
         <picker mode="region" class="picker" name="region" bindchange="bindRegionPickerChange" value="{{employee.region}}">
@@ -71,22 +80,22 @@
     <view class="form-item-p">
       <view class="form-item-p-label">闲置时间<text class="star">*</text></view>
       <view class="form-item-p-val vc">
-        <textarea class="text-area" name="spareTime" placeholder="例如：下午14到18点" maxlength="140" value="{{employee.spareTime}}"/>
+        <textarea class="text-area" bindblur='spareTimeChange' name="spareTime" placeholder="例如：下午14到18点" maxlength="140" value="{{employee.spareTime}}"/>
       </view>
     </view>
     <view class="form-item-p">
       <view class="form-item-p-label">自我介绍</view>
       <view class="form-item-p-val vc">
-        <textarea class="text-area" name="introduce" placeholder="介绍下自己吧~ 140字以内" maxlength="140" value="{{employee.introduce}}"/>
+        <textarea class="text-area" bindblur='introduceChange' name="introduce" placeholder="介绍下自己吧~ 140字以内" maxlength="140" value="{{employee.introduce}}"/>
       </view>
     </view>
     <view class="form-item m-mb-30 vc {{authClass}}">
       <view class="form-item-label">身份证号码<text class="star">*</text></view>
       <view class="form-item-val">
-        <input class="form-item-input" name="card" placeholder="请输入身份证号码" value="{{employee.card}}" maxlength="19" type="text" />
+        <input class="form-item-input" bindblur='cardChange' name="card" placeholder="请输入身份证号码" value="{{employee.card}}" maxlength="19" type="text" />
       </view>
     </view>
-    <view class="form-item-m">
+    <view class="form-item-m {{authClass}}">
       <view class="form-item-m-label">身份证正面照<text class="star">*</text></view>
       <view class="form-item-m-val vc">
         <view class="m-icon-wrap cc" bindtap="bindCardP">
@@ -96,7 +105,7 @@
         <view class="m-tip">证件的姓名和证件号码需清晰可见，支持JPG,PNG格式图片且大小不超过2M。</view>
       </view>
     </view>
-    <view class="form-item-m">
+    <view class="form-item-m {{authClass}}">
       <view class="form-item-m-label">身份证背面照<text class="star">*</text></view>
       <view class="form-item-m-val vc">
         <view class="m-icon-wrap cc" bindtap="bindCardN">
@@ -116,7 +125,7 @@
         <view class="m-tip">请上传个人清晰头像，支持JPG,PNG格式图片且大小不超过1M。</view>
       </view>
     </view>
-    <view class="form-item-m m-mt-30">
+    <view class="form-item-m m-mt-30 {{authClass}}">
       <view class="form-item-m-label">个人证书</view>
       <view class="form-item-m-val vc">
         <view class="m-icon-wrap cc" bindtap="bindCertificate">
@@ -126,8 +135,26 @@
         <view class="m-tip">技能证书、获奖证书、或工作证均可。支持JPG,PNG格式图片且大小不超过1M。</view>
       </view>
     </view>
+    <view class="form-item-m m-mt-30">
+      <view class="form-item-m-label">个人作品</view>
+      <view class="form-item-m-val vc">
+        <view class="m-icon-wrap cc" bindtap="bindWorkOne">
+          <image class="m-icon" src="../../images/icon_camera.png"/>
+          <image class="m-icon-pic" src="{{baseWorkUrl}}{{employee.workOneUrl}}"/>
+        </view>
+        <view class="m-icon-wrap cc" bindtap="bindWorkTwo">
+          <image class="m-icon" src="../../images/icon_camera.png"/>
+          <image class="m-icon-pic" src="{{baseWorkUrl}}{{employee.workTwoUrl}}"/>
+        </view>
+        <view class="m-icon-wrap cc" bindtap="bindWorkThree">
+          <image class="m-icon" src="../../images/icon_camera.png"/>
+          <image class="m-icon-pic" src="{{baseWorkUrl}}{{employee.workThreeUrl}}"/>
+        </view>
+        <view class="m-tip">最多上传3张作品</view>
+      </view>
+    </view>
     <view class="cc">
-      <button formType="submit" class="form-submit cc" hover-class="form-submit-hover">提交审核</button>
+      <button formType="submit" class="form-submit cc" hover-class="form-submit-hover">{{submitText}}</button>
     </view>
   </form>
 </view>

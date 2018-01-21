@@ -15,9 +15,12 @@ function login() {
             var iv = res.iv;
             getUID(encryptedData, iv, code, function(result){
               var obj = result.data;  
+              console.log("obj-->"+JSON.stringify(obj));
               if(0 == obj.code){
                 console.log("uid-->" + obj.uid);
+                console.log("sign-->" + obj.sign);
                 util.setUID(obj.uid);
+                util.setSign(obj.sign);
               }else{
                 util.showModal('登录失败');               
               }              
@@ -79,7 +82,7 @@ function getOneEmployer(su) {
 }
 
 // 获取技师列表
-function getAllEmployee(uid, su){
+function getAllEmployee(su){
   util.showLoading();
   var url = config.api_get_all_employee;
   wx.request({
@@ -99,18 +102,18 @@ function getAllEmployee(uid, su){
 }
 
 // 获取技师详情
-function getEmployeeById(su){
-  util.showLoading();
+function getEmployeeById(uid, su){
+  util.showLoading('请稍等');
   var url = config.api_get_one_employee;
   wx.request({
     url: url,
     method: 'GET',
     data: {
-      uid: util.getUID()
+      uid: uid
     },
     success: su,
     fail: function () {
-      util.showFailModal();
+      util.showModal('网络异常');
     },
     complete: function () {
       util.hideLoading();
@@ -160,6 +163,136 @@ function authEmployee(data, su) {
   })
 }
 
+// 所有需求
+function getAllDemand(su){
+  util.showLoading();
+  var url = config.api_get_all_demand;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: {
+      uid: util.getUID()
+    },
+    success: su,
+    fail: function () {
+      util.showFailModal('请求失败');
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+// 获取所有技能
+function getAllSkill(su) {
+  util.showLoading();
+  var url = config.api_get_all_skill;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: {
+      uid: util.getUID()
+    },
+    success: su,
+    fail: function () {
+      util.showFailModal('请求失败');
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+
+// 提交技师技能
+function chooseSkill(choosedStr, su) {
+  util.showLoading('请稍等');
+  var url = config.api_post_employee_skill;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: {
+      uid: util.getUID(),
+      choosedStr: choosedStr
+    },
+    success: su,
+    fail: function () {
+      util.showFailModal('网络异常');
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+
+// 发布需求
+function publishDemand(data, su) {
+  util.showLoading('提交中');
+  var url = config.api_post_publish_demand;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      // util.hideLoading();
+    }
+  })
+}
+
+// 预约
+function yuyueOrder(data, su) {
+  util.showLoading('提交中');
+  var url = config.api_post_yuyue_order;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      // util.hideLoading();
+    }
+  })
+}
+
+
+// 点赞
+function likeEmployee(data, su) {
+  util.showLoading('提交中');
+  var url = config.api_post_like_employee;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
 /**
  * 发送pv
  */
@@ -176,256 +309,6 @@ function sendPv(id,su){
 }
 
 
-/**
- * 获取swiper数据
- */
-function getSwiperData(mid,su){
-    util.showLoading();
-    var url=config.api_get_hot_product;
-    wx.request({
-        url:url,
-        method:'GET', 
-        data:{
-            mid:mid 
-        },
-        success:su,
-        fail:function(){
-            util.showFailModal();
-        },
-        complete:function(){
-            util.hideLoading();
-        }
-    }) 
-}
-
-
-/**
- * 获取全部产品
- */
-function getProductData(mid,su){
-    util.showLoading();
-    var url=config.api_get_all_product;
-    console.log("url:"+url+" mid:"+mid);
-    wx.request({
-        url:url,
-        method:'GET', 
-        data:{
-            mid:mid 
-        },
-        success:su,
-        fail:function(){
-            util.showFailModal();
-        },
-        complete:function(){
-            util.hideLoading();
-        }
-    }) 
-}
-
-
-
-/**
- * 获取热门产品
- */
-function getHotProductData(mid,su,fa){
-    util.showLoading();
-    var url=config.api_get_hot_product;
-    wx.request({
-        url:url,
-        method:'GET', 
-        data:{
-            mid:mid 
-        },
-        success:su,
-        fail:function(){
-            util.showFailModal();
-        },
-        complete:function(){
-            util.hideLoading();
-        }
-    }) 
-}
-
-
-/**
- * 获取最近产品
- */
-function getRecentProductData(mid, su, fa) {
-  util.showLoading();
-  var url = config.api_get_recent_product;
-  wx.request({
-    url: url,
-    method: 'GET',
-    data: {
-      mid: mid
-    },
-    success: su,
-    fail: function () {
-      util.showFailModal();
-    },
-    complete: function () {
-      util.hideLoading();
-    }
-  })
-}
-
-
-/**
- * 服务模式：上门，到店
- */
-function getModeProductData(mid,mode,su,fa){
-    util.showLoading();
-    var url=config.api_get_mode_product;
-    wx.request({
-        url:url,
-        method:'GET', 
-        data:{
-            mid:mid,
-            mode:mode
-        },
-        success:su,
-        fail:function(){
-            util.showFailModal();
-        },
-        complete:function(){
-            util.hideLoading();
-        }
-    }) 
-}
-
-/**
- * 获取单个产品
- */
-function getProductById(pid,su,fa){
-    util.showLoading(); 
-    var url=config.api_get_one_product;
-    wx.request({
-        url:url,
-        method:'GET', 
-        data:{
-            pid:pid
-        },
-        success:su,
-        fail:function(){
-            util.showFailModal();
-        },
-        complete:function(){
-            util.hideLoading();
-        }
-    }) 
-}
-
-
-/**
- * 获取人员
- */
-function getStaffList(mid,su){
-    util.showLoading();
-    var url=config.api_get_all_staff;
-    wx.request({
-        url:url,
-        method:'GET', 
-        data:{
-            mid:mid 
-        },
-        success:su,
-        fail:function(){
-            util.showFailModal();
-        },
-        complete:function(){
-            util.hideLoading();
-        }
-    }) 
-}
-
-/**
- * 获取单个人员
- */
-function getOneStaff(mid,sid,su){
-    util.showLoading();
-    var url=config.api_get_one_staff;
-    wx.request({
-        url:url,
-        method:'GET', 
-        data:{
-            mid:mid,
-            sid:sid
-        },
-        success:su,
-        fail:function(){
-            util.showFailModal();
-        },
-        complete:function(){
-            util.hideLoading();
-        }
-    }) 
-}
-
-
-/**
- * 预约人员
- */
-function bookStaff(data,su){
-    util.showLoading();
-    var url=config.api_post_one_book;
-    wx.request({
-        url:url,
-        method:'POST', 
-        data:data,
-        success:su,
-        fail:function(){
-            util.showFailModal();
-        },
-        complete:function(){
-            // util.hideLoading();
-        }
-    }) 
-}
-
-/**
- * 所有预约
- */
-function getAllBook(userId,su){
-    util.showLoading();
-    var url=config.api_get_all_book;
-    wx.request({
-        url:url,
-        method:'GET', 
-        data:{
-            userId:userId
-            },
-        success:su,
-        fail:function(){
-            util.showFailModal();
-        },
-        complete:function(){
-            util.hideLoading();
-        }
-    }) 
-}
-
-/**
- * 取消预约
- */
-function cancelOneBook(bid,su){
-    util.showLoading();
-    var url=config.api_cancel_one_book;
-    wx.request({
-        url:url,
-        method:'POST', 
-        data:{
-            bid:bid
-            },
-        success:su,
-        fail:function(){
-            util.showFailModal();
-        },
-        complete:function(){
-            // util.hideLoading();
-        }
-    }) 
-}
-
 
 
 module.exports={
@@ -436,17 +319,14 @@ module.exports={
   getOneEmployer,
   commitEmployer,
   authEmployee,
+  getAllSkill,
+  chooseSkill,
+  publishDemand,
+  yuyueOrder,
+  likeEmployee,
+  getAllDemand,
 
-  getSwiperData:getSwiperData,
-  getProductData:getProductData,
-  getHotProductData:getHotProductData,
-  getRecentProductData:getRecentProductData,
-  getModeProductData:getModeProductData,
-  getStaffList:getStaffList,
-  getProductById:getProductById,
-  getOneStaff:getOneStaff,
-  bookStaff:bookStaff,
   sendPv:sendPv,
-  getAllBook:getAllBook,
-  cancelOneBook:cancelOneBook
+  // getAllBook:getAllBook,
+  // cancelOneBook:cancelOneBook
 }
