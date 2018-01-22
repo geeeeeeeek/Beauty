@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="page">
   <block wx:for="{{demands}}" wx:for-item="demand" wx:key="">
-  <view class="list-item" bindtap="bindItemClick">
+  <view class="list-item" data-id="{{demand.id}}" bindtap="bindItemClick">
       <view class="list-item-left">
           <image class="list-item-left-icon" src="{{baseStoreUrl}}{{demand.storePhoto}}"></image>
       </view>
@@ -14,7 +14,7 @@
           <view class="item-address">{{demand.region}}</view>
           <view class="item-price">{{demand.price}}元</view>
           <view>
-              <button class="item-yuyue-btn theme-btn-color cc" hover-class="btn-hover" data-id="{{staff.s_id}}" catchtap="bindTakeOrder">接单</button>
+              <button class="item-yuyue-btn theme-btn-color cc" hover-class="btn-hover" data-id="{{demand.id}}" catchtap="bindTakeOrderClick">接单</button>
           </view> 
       </view>
   </view> 

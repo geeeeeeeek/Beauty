@@ -22,10 +22,12 @@ var api_post_commit_employer = appPath + '/api/employer/commit';
 var api_post_auth_employee = appPath + '/api/employee/auth';
 var api_get_all_skill = appPath + '/api/skill/all';
 var api_post_employee_skill = appPath + '/api/employee/chooseSkill';
-var api_post_publish_demand = appPath + '/api/demand/publish';
+var api_post_publish_demand = appPath + '/api/order/publishDemand';
 var api_post_yuyue_order = appPath + '/api/order/yuyue';
 var api_post_like_employee = appPath + '/api/employee/like';
-var api_get_all_demand = appPath + '/api/demand/all';
+var api_get_all_demand = appPath + '/api/order/allDemand';
+var api_get_one_demand = appPath + '/api/order/oneDemand';
+var api_post_take_order = appPath + '/api/order/take'
 
 var api_get_all_product=appPath+'/api/product/all';
 var api_get_hot_product=appPath+'/api/product/hot';
@@ -75,6 +77,8 @@ module.exports = {
     api_post_yuyue_order,
     api_post_like_employee,
     api_get_all_demand,
+    api_get_one_demand,
+    api_post_take_order,
 
     api_get_all_product,
     api_get_hot_product,

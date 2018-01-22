@@ -293,6 +293,48 @@ function likeEmployee(data, su) {
   })
 }
 
+
+// 获取技师详情
+function getDemandById(id, su) {
+  util.showLoading('请稍等');
+  var url = config.api_get_one_demand;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: {
+      id: id
+    },
+    success: su,
+    fail: function () {
+      util.showModal('网络异常');
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+// 接单
+function takeOrder(data, su) {
+  util.showLoading('提交中');
+  var url = config.api_post_take_order;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      // util.hideLoading();
+    }
+  })
+}
+
 /**
  * 发送pv
  */
@@ -325,6 +367,8 @@ module.exports={
   yuyueOrder,
   likeEmployee,
   getAllDemand,
+  getDemandById,
+  takeOrder,
 
   sendPv:sendPv,
   // getAllBook:getAllBook,

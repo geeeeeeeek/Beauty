@@ -30,13 +30,26 @@ Page({
   bindItemClick: function (e) {
     var ds = e.currentTarget.dataset;
     wx.navigateTo({
-      url: '../demandDetail/demandDetail'
+      url: '../demandDetail/demandDetail?id='+ds.id
     })
-  },
+  }, 
 
-  bindTakeOrder: function(e){
+  bindTakeOrderClick: function (e) {
+    var that = this;
     var ds = e.currentTarget.dataset;
-     util.showToast("接单成功")
+    var id = ds.id;
+    var uid = util.getUID();
+    var data = new Array();
+    data.id = id;
+    data.uid = util.getUID();
+    data.sign = util.getSign();
+    api.takeOrder(data, function (res) {
+      if (res.data.code == 0) {
+        util.showToast('接单成功');
+      } else {
+        util.showToast('接单失败');
+      }
+    })
   },
 
   bindTapPublish: function(){

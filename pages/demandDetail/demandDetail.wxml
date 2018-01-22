@@ -1,35 +1,35 @@
 <view class="page">
 
   <view class="page-header">
-      <image class="header-img" mode="aspectFill" src="http://p3.pstatp.com/origin/40330002390297c1a730"/>
+      <image class="header-img" mode="aspectFill" src="{{baseStoreUrl}}{{demand.storePhoto}}"/>
   </view>
 
   <view class="page-content">
     <view class="content-desc-wrap">
       <view class="content-title-wrap">
-        <text class="content-title">脸部的按摩与保养</text>
-        <text class="content-price">200元</text>
+        <text class="content-title">{{demand.title}}</text>
+        <text class="content-price">{{demand.price}}元</text>
       </view>
       <view class="content-kv vc">
         <image class="label" src="../../images/icon_time.png"/>
-        <text class="val">2017-10-22 09:30</text>
+        <text class="val">{{demand.startTime}}</text>
       </view>
       <view class="content-kv vc">
         <image class="label" src="../../images/icon_duration.png"/>
-        <text class="val">120分钟</text>
+        <text class="val">{{demand.duration}}分钟</text>
       </view>
       <view class="content-kv vc">
         <image class="label" src="../../images/icon_location.png"/>
-        <text class="val">朝阳区花园路8号</text>
+        <text class="val">{{demand.region}}{{demand.address}}</text>
       </view>
     </view>
     <view class="content-intro-wrap">
       <view class="intro-label">门店简介</view>
-      <view class="intro-val">哈哈哈，有计划要重塑得克萨斯州诸多门店的品牌形象.</view>
+      <view class="intro-val">{{demand.introduce}}</view>
     </view>
   </view>
 
 
-  <view class="float-view cc">接单</view>
+  <view data-id='{{demand.id}}' bindtap='bindTakeOrderClick' class="float-view cc">接单</view>
 
 </view>
