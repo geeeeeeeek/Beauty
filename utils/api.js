@@ -21,6 +21,7 @@ function login() {
                 console.log("sign-->" + obj.sign);
                 util.setUID(obj.uid);
                 util.setSign(obj.sign);
+                getUserStatus();
               }else{
                 util.showModal('登录失败');               
               }              
@@ -55,6 +56,31 @@ function getUID(encryptedData, iv, code, su){
     },
     complete: function () {
       util.hideLoading();
+    }
+  })
+}
+
+// 获取认证状态 erStatus eeStatus
+function getUserStatus() {
+  var url = config.api_get_user_status;
+  wx.request({
+    url: url,
+    method: 'GET',
+    dataType: 'json',
+    data: {
+      uid: util.getUID()
+    },
+    success: function(res){
+      if(res.data.code == 0){
+        var erStatus = res.data.erStatus;
+        var eeStatus = res.data.eeStatus;
+        util.setErStatus(erStatus);
+        util.setEeStatus(eeStatus);
+      }
+    },
+    fail: function () {
+    },
+    complete: function () {
     }
   })
 }
@@ -102,14 +128,14 @@ function getAllEmployee(su){
 }
 
 // 获取技师详情
-function getEmployeeById(uid, su){
+function getEmployeeById(su){
   util.showLoading('请稍等');
   var url = config.api_get_one_employee;
   wx.request({
     url: url,
     method: 'GET',
     data: {
-      uid: uid
+      uid: util.getUID()
     },
     success: su,
     fail: function () {
@@ -288,7 +314,7 @@ function likeEmployee(data, su) {
       util.showFailModal();
     },
     complete: function () {
-      util.hideLoading();
+      // util.hideLoading();
     }
   })
 }
@@ -356,6 +382,7 @@ function sendPv(id,su){
 module.exports={
   login: login,
   getUID: getUID,
+  getUserStatus,
   getAllEmployee,
   getEmployeeById,
   getOneEmployer,

@@ -25,12 +25,14 @@
     </view>
   </view>
 
-  <view class="page-item vc" bindtap='erAuthClick'>
-    <view class="item-name">店家认证</view>
-      <view class="vc">
-          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
-      </view>
-  </view>
+  <block wx:if="{{erStatus=='0'}}">
+    <view class="page-item vc" bindtap='erAuthClick'>
+      <view class="item-name">店家认证</view>
+        <view class="vc">
+            <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+        </view>
+    </view>
+  </block>
 
   <view class="page-item vc" bindtap="erInfoClick">
     <view class="item-name">店家资料</view>

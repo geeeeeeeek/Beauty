@@ -17,6 +17,22 @@ function setSign(sign) {
   wx.setStorageSync("sign", sign);
 }
 
+// 用户认证状态
+function getErStatus(){
+  return wx.getStorageSync("erStatus");
+}
+
+function setErStatus(erStatus){
+  wx.setStorageSync("erStatus", erStatus);
+}
+
+function getEeStatus() {
+  return wx.getStorageSync("eeStatus");
+}
+
+function setEeStatus(eeStatus) {
+  wx.setStorageSync("eeStatus", eeStatus);
+}
 
 // 用户状态授权
 function checkUserInfoAuth(su){ 
@@ -212,6 +228,10 @@ module.exports = {
   setUID: setUID,
   getSign: getSign,
   setSign: setSign,
+  getErStatus: getErStatus,
+  setErStatus: setErStatus,
+  getEeStatus: getEeStatus,
+  setEeStatus: setEeStatus,
   checkUserInfoAuth: checkUserInfoAuth,
   uploadFile: uploadFile,
   formatTime: formatTime,

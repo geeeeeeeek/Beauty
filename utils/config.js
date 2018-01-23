@@ -17,6 +17,7 @@ var img800=appPath+'/upload/img_800';
 var api_get_all_employee=appPath+'/api/employee/all';
 var api_get_one_employee = appPath + '/api/employee/one';
 var api_get_one_uid = appPath + '/api/uid/one';
+var api_get_user_status = appPath + '/api/uid/userStatus'
 var api_get_one_employer = appPath + '/api/employer/one';
 var api_post_commit_employer = appPath + '/api/employer/commit';
 var api_post_auth_employee = appPath + '/api/employee/auth';
@@ -68,6 +69,7 @@ module.exports = {
     api_get_all_employee,
     api_get_one_employee,
     api_get_one_uid,
+    api_get_user_status,
     api_get_one_employer,
     api_post_commit_employer,
     api_post_auth_employee,

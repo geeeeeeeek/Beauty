@@ -3,7 +3,9 @@ var util = require('../../utils/util.js')
 
 Page({
     data:{
-        userInfo:null
+        userInfo: null,
+        erStatus: null,
+        eeStatus: null
     },
 
     onLoad:function(){
@@ -13,13 +15,22 @@ Page({
                 userInfo:userInfo
             })
         }
+    },
 
-        // 登录 
-        if (!util.getUID()) {
-          util.checkUserInfoAuth(function () {
-            api.login();
-          })
-        }
+    onShow: function(){
+      var that = this;
+      // 登录 
+      if (!util.getUID()) {
+        util.checkUserInfoAuth(function () {
+          api.login();
+        })
+      } else {
+        api.getUserStatus();
+      }
+ 
+
+      console.log("erStatus-->" + util.getErStatus());
+      console.log("eeStatus-->"+util.getEeStatus());
     },
 
     erInfoClick: function () {

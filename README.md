@@ -11,6 +11,13 @@
 - DB定时拷贝
 - 做好自测
 
+#### 关键流程
+- 认证状态：0未认证  1认证中  2认证失败  3认证成功
+- getUserStatus()可以获取用户状态，获取后存本地
+- "我的" onShow()会调用getUserStatus()
+- 我的页面必须登录后才能进来
+- 登录后调用getUserStatus()
+
 #### 表 employee
 - uid
 - nickName
