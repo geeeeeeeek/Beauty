@@ -145,6 +145,7 @@ function hideLoading(){
 
 function showToast(text){
   wx.showToast({
+    icon: "none",
     title: text
   })
 }

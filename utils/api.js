@@ -62,7 +62,11 @@ function getUID(encryptedData, iv, code, su){
 
 // 获取认证状态 erStatus eeStatus
 function getUserStatus() {
+  console.log("-->getUserStatus");
   var url = config.api_get_user_status;
+  if(!util.getUID()){
+    return;
+  }
   wx.request({
     url: url,
     method: 'GET',
@@ -128,14 +132,14 @@ function getAllEmployee(su){
 }
 
 // 获取技师详情
-function getEmployeeById(su){
+function getEmployeeById(eeUid, su){
   util.showLoading('请稍等');
   var url = config.api_get_one_employee;
   wx.request({
     url: url,
     method: 'GET',
     data: {
-      uid: util.getUID()
+      uid: eeUid
     },
     success: su,
     fail: function () {
@@ -184,7 +188,7 @@ function authEmployee(data, su) {
       util.showFailModal();
     },
     complete: function () {
-      util.hideLoading();
+      // util.hideLoading();
     }
   })
 }
@@ -320,7 +324,7 @@ function likeEmployee(data, su) {
 }
 
 
-// 获取技师详情
+// 获取详情
 function getDemandById(id, su) {
   util.showLoading('请稍等');
   var url = config.api_get_one_demand;
@@ -329,6 +333,26 @@ function getDemandById(id, su) {
     method: 'GET',
     data: {
       id: id
+    },
+    success: su,
+    fail: function () {
+      util.showModal('网络异常');
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+// 获取我的发布
+function getMyPublish(su) {
+  util.showLoading('请稍等');
+  var url = config.api_get_my_publish;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: {
+      uid: util.getUID()
     },
     success: su,
     fail: function () {
@@ -396,6 +420,7 @@ module.exports={
   getAllDemand,
   getDemandById,
   takeOrder,
+  getMyPublish,
 
   sendPv:sendPv,
   // getAllBook:getAllBook,

@@ -10,7 +10,9 @@
         <view class="header-info cc">
              <image src="{{userInfo.avatarUrl}}" mode="scaleToFill" class="header-icon" />
              <text class="info-name vc">{{userInfo.nickName}}</text> 
-             <image src="../../images/icon_has_auth.png" mode="aspectFit" class="header-auth" />  
+             <block wx:if="{{eeStatus == '3' || erStatus == '3'}}">
+              <image src="../../images/icon_has_auth.png" mode="aspectFit" class="header-auth" />  
+             </block>
         </view>
     </view> 
 
@@ -25,56 +27,58 @@
     </view>
   </view>
 
-  <block wx:if="{{erStatus=='0'}}">
-    <view class="page-item vc" bindtap='erAuthClick'>
-      <view class="item-name">店家认证</view>
+
+  <view class="page-item vc" bindtap='erAuthClick'>
+    <view class="item-name">
+      <block wx:if="{{erStatus=='0'}}">店家认证</block>
+      <block wx:elif="{{erStatus=='1'}}">店家认证（认证中)</block>
+      <block wx:elif="{{erStatus=='2'}}">店家认证（认证失败)</block>
+      <block wx:elif="{{erStatus=='3'}}">店家资料</block>
+    </view>
+      <view class="vc">
+          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+      </view>
+  </view> 
+
+  <view class="page-item vc" bindtap='eeAuthClick'>
+    <view class="item-name">
+      <block wx:if="{{eeStatus=='0'}}">技师认证</block>
+      <block wx:elif="{{eeStatus=='1'}}">技师认证（认证中)</block>
+      <block wx:elif="{{eeStatus=='2'}}">技师认证（认证失败)</block>
+      <block wx:elif="{{eeStatus=='3'}}">技师资料</block>
+    </view>
+      <view class="vc">
+          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+      </view>
+  </view> 
+
+  <block wx:if="{{erStatus == '3'}}">
+    <view class="page-item vc" bindtap='myPublishClick'>
+      <view class="item-name">我的发布</view>
         <view class="vc">
             <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
         </view>
     </view>
   </block>
 
-  <view class="page-item vc" bindtap="erInfoClick">
-    <view class="item-name">店家资料</view>
-      <view class="vc">
-          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
-      </view>
-  </view>
+  <block wx:if="{{erStatus == '3'}}">
+    <view class="page-item vc" bindtap='myYuyueClick'>
+      <view class="item-name">我的预约</view>
+        <view class="vc">
+            <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+        </view>
+    </view>
+  </block>
 
-  <view class="page-item vc" bindtap='eeAuthClick'>
-    <view class="item-name">技师认证</view>
-      <view class="vc">
-          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
-      </view>
-  </view>
+  <block wx:if="{{eeStatus == '3'}}">
+    <view class="page-item vc" bindtap='myOrderClick'>
+      <view class="item-name">我的订单</view>
+        <view class="vc">
+            <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+        </view>
+    </view>
+  </block>
 
-  <view class="page-item vc" bindtap="eeInfoClick">
-    <view class="item-name">个人资料</view>
-      <view class="vc">
-          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
-      </view>
-  </view>
-
-  <view class="page-item vc" bindtap='myPublishClick'>
-    <view class="item-name">我的发布</view>
-      <view class="vc">
-          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
-      </view>
-  </view>
-
-  <view class="page-item vc" bindtap='myOrderClick'>
-    <view class="item-name">我的订单</view>
-      <view class="vc">
-          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
-      </view>
-  </view>
-
-  <view class="page-item vc" bindtap='myYuyueClick'>
-    <view class="item-name">我的预约</view>
-      <view class="vc">
-          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
-      </view>
-  </view>
 
   <view class="page-item vc">
     <view class="item-name">帮助与客服</view>

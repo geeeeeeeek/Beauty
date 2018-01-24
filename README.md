@@ -12,6 +12,7 @@
 - 做好自测
 
 #### 关键流程
+- getUserStatus()调用地方: app.onShow(), login(), my.js
 - 认证状态：0未认证  1认证中  2认证失败  3认证成功
 - getUserStatus()可以获取用户状态，获取后存本地
 - "我的" onShow()会调用getUserStatus()

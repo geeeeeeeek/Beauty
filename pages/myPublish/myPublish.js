@@ -5,21 +5,23 @@ var util = require('../../utils/util.js')
 
 Page({
   data: {
-    img220: config.img220
+     orders: []
   },
 
   onLoad: function () {
-    var that = this;
+    var that = this; 
 
-    this.init();
+    api.getMyPublish(function(res){
+      if(res.data.code == 0){
+        that.setData({
+          orders: res.data.orders
+        })
+      }
+    });
+
+  },
+
  
-
-  },
-
-
-  init: function () {
-
-  },
   
   itemClick: function(){
     wx.navigateTo({

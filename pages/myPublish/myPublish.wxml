@@ -1,18 +1,19 @@
 <view class="page">
 
+  <block wx:for="{{orders}}" wx:for-item="order" wx:key="id">
     <view class="list-item" bindtap="itemClick">
         <view class="list-item-top vc">
-            <view class="top-left">脸部保养 200元</view>
+            <view class="top-left">{{order.title}}</view>
             <view class="top-right">发布中</view>
         </view>
         <view class="list-item-bottom">
               <view class="list-item-right"> 
-                <view class="item-time">预约时间：2017-12-12 09:30</view> 
-                <view class="item-time">时长：30分钟</view> 
-                <view class="item-time">地址：青年路88号</view> 
+                <view class="item-time">预约时间：{{order.startTime}}</view> 
+                <view class="item-time">时长：{{order.duration}}分钟</view> 
+                <view class="item-time">地址：{{order.region}}{{order.address}}</view> 
                 <view class="item-operate ">
 
-                     <button class="btn-reply cc" hover-class="btn-reply-selected" bindtap="showReplyDialog">取消</button> 
+                     <button class="btn-reply cc" hover-class="btn-reply-selected" catchtap="showReplyDialog">取消</button> 
 
                      <view class="item-tip"></view> 
                     
@@ -20,7 +21,7 @@
             </view>
         </view>
     </view>
-
+  </block>
   
     <block wx:if="{{books.length==0}}">
         <view class="tip cc">

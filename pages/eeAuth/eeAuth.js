@@ -55,7 +55,8 @@ Page({
 
     console.log("-->" + util.getUID());
     // ---------------------getEmployee-----------------------
-    api.getEmployeeById(function (res) { 
+    var eeUid = util.getUID();
+    api.getEmployeeById(eeUid, function (res) { 
       var employee = res.data.employee; 
       if (Object.keys(employee).length === 0) {
         return;
@@ -124,6 +125,7 @@ Page({
       console.log(res.data)
       if (res.data.code == 0) {
         util.showToast('提交成功');
+        wx.navigateBack();
       } else {
         util.showModal('提交失败');
       }

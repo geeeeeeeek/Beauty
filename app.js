@@ -7,7 +7,11 @@ App({
     skillStr: ''
   },
   
-  onLaunch: function () {
+  onLaunch: function (options) {
      
-  } 
+  },
+
+  onShow: function (options){
+    api.getUserStatus();
+  }
 })

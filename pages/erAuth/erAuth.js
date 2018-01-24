@@ -131,6 +131,7 @@ Page({
         console.log(res.data)
         if(res.data.code == 0){
           util.showToast('提交成功');
+          wx.navigateBack();
         }else{
           util.showModal('提交失败');
         }
