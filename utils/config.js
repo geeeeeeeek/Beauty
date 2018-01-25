@@ -30,6 +30,7 @@ var api_get_all_demand = appPath + '/api/order/allDemand';
 var api_get_one_demand = appPath + '/api/order/oneDemand';
 var api_post_take_order = appPath + '/api/order/take'
 var api_get_my_publish = appPath + '/api/order/myPublish';
+var api_post_cancel_publish = appPath + '/api/order/cancelPublish';
 
 var api_get_all_product=appPath+'/api/product/all';
 var api_get_hot_product=appPath+'/api/product/hot';
@@ -95,6 +96,7 @@ module.exports = {
     api_send_one_pv,
     api_get_all_book,
     api_cancel_one_book,
+    api_post_cancel_publish,
  
     api_upload_license,
     api_upload_storePhoto,

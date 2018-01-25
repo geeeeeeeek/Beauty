@@ -1,29 +1,39 @@
 <view class="page">
 
   <block wx:for="{{orders}}" wx:for-item="order" wx:key="id">
-    <view class="list-item" bindtap="itemClick">
+    <view class="list-item">
         <view class="list-item-top vc">
             <view class="top-left">{{order.title}}</view>
-            <view class="top-right">发布中</view>
+            <view class="top-right">
+              <block wx:if="{{order.status=='0'}}">发布中</block>
+              <block wx:elif="{{order.status=='1'}}">已派单</block>
+              <block wx:elif="{{order.status=='2'}}">被接单</block>
+              <block wx:elif="{{order.status=='3'}}">已完成</block>
+            </view>
         </view>
         <view class="list-item-bottom">
               <view class="list-item-right"> 
                 <view class="item-time">预约时间：{{order.startTime}}</view> 
+                <view class="item-time">价格：{{order.price}}元</view> 
                 <view class="item-time">时长：{{order.duration}}分钟</view> 
                 <view class="item-time">地址：{{order.region}}{{order.address}}</view> 
+                <block wx:if="{{order.status != '0'}}">
+                  <view class="item-ee" data-id="{{order.eeUid}}" catchtap='eeClick'>
+                    <view class="item-ee-nickname">查看接单人</view>
+                  </view>
+                </block>
                 <view class="item-operate ">
-
-                     <button class="btn-reply cc" hover-class="btn-reply-selected" catchtap="showReplyDialog">取消</button> 
-
-                     <view class="item-tip"></view> 
-                    
+                  <block wx:if="{{order.status=='0'}}">
+                     <button class="btn-reply cc" data-id="{{order.id}}" hover-class="btn-reply-selected" catchtap="showReplyDialog">取消</button> 
+                  </block>
+                  <view class="item-tip"></view> 
                 </view> 
             </view>
         </view>
     </view>
   </block>
   
-    <block wx:if="{{books.length==0}}">
+    <block wx:if="{{orders.length==0}}">
         <view class="tip cc">
         暂无预约
         </view>

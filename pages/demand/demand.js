@@ -9,14 +9,7 @@ Page({
   },
 
   onLoad: function () {
-    var that = this;
-
-    api.getAllDemand(function (res) { 
-      console.log(res.data)
-      that.setData({
-        demands: res.data.demands
-      }) 
-    })
+    var that = this; 
 
     // 登录 
     if (!util.getUID()) {
@@ -24,6 +17,20 @@ Page({
         api.login();
       })
     } 
+  },
+
+  onShow: function(){
+    this.loadData(); 
+  },
+
+  loadData: function(){
+    var that = this;
+    api.getAllDemand(function (res) {
+      console.log(res.data)
+      that.setData({
+        demands: res.data.demands
+      })
+    })
   },
 
   //单条点击
@@ -58,9 +65,14 @@ Page({
         api.login();
       })
     }else{
-      wx.navigateTo({
-        url: '../demandEdit/demandEdit',
-      })
+      var erStatus = util.getErStatus();
+      if(erStatus == '3'){
+        wx.navigateTo({
+          url: '../demandEdit/demandEdit',
+        })
+      }else{
+        util.showModal('请先认证为店家');
+      }
     }
   }
  

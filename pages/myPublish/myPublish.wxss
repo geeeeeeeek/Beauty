@@ -18,7 +18,7 @@
     flex-direction: row;
     margin: 0 30rpx;
     padding:30rpx 0;
-    border-bottom: 2rpx #dbc5ba solid;
+    border-bottom: 1rpx #26a69a solid;
 }
 .top-left{
     flex:1;
@@ -27,7 +27,7 @@
 }
 .top-right{ 
     color:#555;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .list-item-bottom{
@@ -64,6 +64,20 @@
 .item-tip{
   color:#ff62a7;
   font-size: 12px;
+}
+
+.item-ee{
+  border-top: 1rpx #26a69a dashed;
+  border-bottom: 1rpx #26a69a dashed;
+  margin-top: 12rpx;
+  margin-bottom: 12rpx;
+}
+
+.item-ee-nickname{
+  margin-top: 12rpx;
+  margin-bottom: 12rpx;
+  color: #26a69a;
+  font-size: 14px;
 }
 
 .btn-reply{

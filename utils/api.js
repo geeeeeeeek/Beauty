@@ -385,6 +385,27 @@ function takeOrder(data, su) {
   })
 }
 
+// 取消发布
+function cancelPublish(data, su) {
+  util.showLoading('提交中');
+  var url = config.api_post_cancel_publish;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
 /**
  * 发送pv
  */
@@ -421,6 +442,7 @@ module.exports={
   getDemandById,
   takeOrder,
   getMyPublish,
+  cancelPublish,
 
   sendPv:sendPv,
   // getAllBook:getAllBook,
