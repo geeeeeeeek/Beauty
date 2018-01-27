@@ -1,0 +1,12 @@
+<!--pages/help/help.wxml-->
+<view class="page"> 
+    <view class="form-item-p">
+      <view class="form-item-p-label">意见反馈</view>
+      <view class="form-item-p-val vc">
+        <textarea class="text-area" name="introduce" placeholder="请写下您的意见~ " maxlength="140" bindblur="introduceChange" value="{{employer.introduce}}"/>
+      </view>
+    </view>
+    <view class="cc">
+      <button formType="submit" class="form-submit cc" hover-class="form-submit-hover">提交</button>
+    </view>
+</view>

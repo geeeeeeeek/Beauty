@@ -1,0 +1,92 @@
+page{
+    height: 100%;
+    background-color: #f5f5f5;
+}
+.page{
+   font-family:  "PingFang SC","Microsoft YaHei",Arial,sans-serif; 
+   background-color: #f5f5f5;
+    height: 100%;
+}
+
+image,view{
+  /* border:1px #f00 solid; */
+}
+
+.star{
+  color:#f00;
+}
+
+
+.form-item{
+  background-color: #fff;
+  padding: 24rpx 24rpx;
+  border-bottom: 1rpx #f5f5f5 solid;
+  display: flex;
+  flex-direction: row;
+}
+
+.form-item-label{
+  color:#333;
+  font-size: 14px;
+  flex: 1;
+} 
+
+.form-item-val{
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+}
+
+.form-item-input{
+  color:#333; 
+  font-size: 14px;
+  width:100%;
+}
+ 
+ 
+ 
+
+.form-submit{
+  width: 100%;
+  height: 80rpx;
+  background-color: #b39ddb;  
+  color: #ffffff;
+  font-size: 16px;
+  margin: 30rpx 20rpx;
+  padding: 20rpx 0; 
+  border-radius: 8rpx;
+  display: inline-flex; 
+  align-items: center;
+  opacity: 1.0;
+}
+
+.form-submit-hover{
+  background-color: #b39ddb;    
+  opacity: 0.8;
+}
+
+.hide{
+  display: none;
+}
+
+
+.page-item{
+  background-color: #fff; 
+  margin-top: 30rpx;
+  padding:30rpx 0; 
+  display: flex;
+  flex-direction: row;
+}
+
+.p-icon{
+    width:40rpx;
+    height: 40rpx;
+    margin-right: 16rpx;
+}
+
+.item-name{
+    flex:1;
+    color:#333;
+    font-size: 14px;
+    margin-left: 20rpx;
+}

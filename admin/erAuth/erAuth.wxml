@@ -1,0 +1,65 @@
+<view class="page">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="form-item vc">
+      <view class="form-item-label">门店名称<text class="star">*</text></view>
+      <view class="form-item-val">
+        <input class="form-item-input" name="storeName" placeholder="请输入店名" bindblur="storeNameChange" value="{{employer.storeName}}" maxlength="16" type="text" />
+      </view>
+    </view>
+    <view class="form-item vc">
+      <view class="form-item-label">联系人<text class="star">*</text></view>
+      <view class="form-item-val">
+        <input class="form-item-input" name="contact" placeholder="请输入联系人" bindblur="contactChange" value="{{employer.contact}}" maxlength="11" type="text" />
+      </view>
+    </view>
+    <view class="form-item vc">
+      <view class="form-item-label">手机号<text class="star">*</text></view>
+      <view class="form-item-val">
+        <input class="form-item-input" name="phone" placeholder="请输入手机号" bindblur="phoneChange" value="{{employer.phone}}" maxlength="11" type="number" />
+      </view>
+    </view>
+    <view class="form-item vc">
+      <view class="form-item-label">门店地址<text class="star">*</text></view>
+      <view class="form-item-val vc">
+        <picker mode="region" class="picker" bindchange="bindRegionPickerChange" value="{{employer.region}}">
+          <view class="picker-left">
+           {{employer.region[0]}}，{{employer.region[1]}}，{{employer.region[2]}}
+          </view>
+        </picker>
+        <image class="icon-right" src="../../images/icon_rightgo.png"/>
+      </view>
+    </view>
+    <view class="form-item vc">
+      <view class="form-item-label">详细地址<text class="star">*</text></view>
+      <view class="form-item-val">
+        <input class="form-item-input" name="address" placeholder="例如：青年路88号" bindblur="addressChange" value="{{employer.address}}" maxlength="20" type="text" />
+      </view>
+    </view>
+    <view class="form-item-p">
+      <view class="form-item-p-label">店铺介绍</view>
+      <view class="form-item-p-val vc">
+        <textarea class="text-area" name="introduce" placeholder="介绍下吧~ 140字以内" maxlength="140" bindblur="introduceChange" value="{{employer.introduce}}"/>
+      </view>
+    </view>
+    <view class="form-item-m m-mt-30 ">
+      <view class="form-item-m-label">营业执照<text class="star">*</text></view>
+      <view class="form-item-m-val vc">
+        <view class="m-icon-wrap cc" bindtap="bindLicensePic">
+          <image class="m-icon-pic" mode="aspectFit" src="{{baseLicenseUrl}}{{employer.license}}"/>
+        </view> 
+      </view>
+    </view>
+    <view class="form-item-m m-mt-30">
+      <view class="form-item-m-label">门店照片<text class="star">*</text></view>
+      <view class="form-item-m-val vc">
+        <view class="m-icon-wrap cc" bindtap="bindStorePic">
+          <image class="m-icon-pic" mode="aspectFit" src="{{baseStoreUrl}}{{employer.storePhoto}}"/>
+        </view> 
+      </view>
+    </view>
+    <view class="cc">
+      <button data-id="{{employer.uid}}" class="form-submit cc" bindtap='itemPass' hover-class="form-submit-hover">通过</button>
+      <button data-id="{{employer.uid}}"  class="form-submit cc" bindtap='itemRefuse' hover-class="form-submit-hover">不通过</button>
+    </view>
+  </form>
+</view>

@@ -1,21 +1,25 @@
 <view class="page">
-
+    <block wx:for="{{orders}}" wx:for-item="order" wx:key="id">
     <view class="list-item" >
         <view class="list-item-top vc">
-            <view class="top-left">脸部保养 200元</view>
-            <view class="top-right">未应答</view>
+            <view class="top-left">{{order.title}}</view>
+            <view class="top-right">
+              <block wx:if="{{order.status=='1'}}">已派单</block>
+              <block wx:elif="{{order.status=='2'}}">被接单</block>
+              <block wx:elif="{{order.status=='3'}}">已完成</block>
+              <block wx:elif="{{order.status=='4'}}">技师已取消</block>
+            </view>
         </view>
         <view class="list-item-bottom">
             <view class="list-item-left"> 
-                <image class="list-item-left-icon" src="http://p3.pstatp.com/origin/40330002390297c1a730"></image>
+                <image class="list-item-left-icon" src="{{baseAvatarUrl}}{{order.avatar}}"></image>
             </view>
                 <view class="list-item-right"> 
-                <view class="item-name ">技师：王晶晶</view> 
-                <view class="item-time">预约时间：2017-12-12 09:30</view> 
-                <view class="item-time">时长：30分钟</view> 
-                <view class="item-operate ">
-
-                     <button class="btn cc" hover-class="btn-selected" bindtap="showCancelDialog">取消</button>
+                <view class="item-name ">技师：{{order.nickName}}</view> 
+                <view class="item-time">预约时间：{{order.startTime}}</view> 
+                <view class="item-time">时长：{{order.duration}}分钟</view> 
+                <view class="item-time">价格：{{order.price}}元</view> 
+                <view class="item-operate ">  
 
                      <view class="item-tip"></view> 
                     
@@ -23,11 +27,11 @@
             </view>
         </view>
     </view>
-
+  </block>
   
-    <block wx:if="{{books.length==0}}">
+    <block wx:if="{{orders.length==0}}">
         <view class="tip cc">
-        暂无预约
+        暂无
         </view>
     </block>
    

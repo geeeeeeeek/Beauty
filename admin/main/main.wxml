@@ -1,0 +1,40 @@
+<view class="page">
+  <form class="{{loginVisible}}" bindsubmit="formSubmit" bindreset="formReset">
+    <view class="form-item vc">
+      <view class="form-item-label">用户名</view>
+      <view class="form-item-val">
+        <input class="form-item-input" name="username" placeholder="请输入用户名" value="" maxlength="16" type="text" />
+      </view>
+    </view>
+    <view class="form-item vc">
+      <view class="form-item-label">密码</view>
+      <view class="form-item-val">
+        <input class="form-item-input" password='true' name="password" placeholder="请输入密码" maxlength="20" type="text" />
+      </view>
+    </view> 
+    <view class="cc">
+      <button formType="submit" class="form-submit cc" hover-class="form-submit-hover">登录</button>
+    </view>
+  </form>
+
+  <view>
+    <view class="page-item vc" bindtap='item1Click'>
+      <view class="item-name">技师管理</view>
+        <view class="vc">
+            <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+        </view>
+    </view>
+    <view class="page-item vc" bindtap='item2Click'>
+      <view class="item-name">店家管理</view>
+        <view class="vc">
+            <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+        </view>
+    </view>
+    <view class="page-item vc" bindtap='item3Click'>
+      <view class="item-name">订单管理</view>
+        <view class="vc">
+            <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+        </view>
+    </view>
+  </view>
+</view>

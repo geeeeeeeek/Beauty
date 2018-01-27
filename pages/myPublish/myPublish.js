@@ -60,13 +60,7 @@ Page({
     wx.navigateTo({
       url: '../eeDetail/eeDetail?id='+eeUid
     })    
-  }
-  
-  // itemClick: function(){
-  //   wx.navigateTo({
-  //     url: '../demandEdit/demandEdit',
-  //   })
-  // }
+  } 
 
 
 

@@ -5,7 +5,7 @@
         <view class="list-item-top vc">
             <view class="top-left">{{order.title}}</view>
             <view class="top-right">
-              <block wx:if="{{order.status=='0'}}">发布中</block>
+              <block wx:if="{{order.status=='0' || order.status=='4'}}">发布中</block>
               <block wx:elif="{{order.status=='1'}}">已派单</block>
               <block wx:elif="{{order.status=='2'}}">被接单</block>
               <block wx:elif="{{order.status=='3'}}">已完成</block>
@@ -17,13 +17,13 @@
                 <view class="item-time">价格：{{order.price}}元</view> 
                 <view class="item-time">时长：{{order.duration}}分钟</view> 
                 <view class="item-time">地址：{{order.region}}{{order.address}}</view> 
-                <block wx:if="{{order.status != '0'}}">
+                <block wx:if="{{order.status != '0' && order.status != '4'}}">
                   <view class="item-ee" data-id="{{order.eeUid}}" catchtap='eeClick'>
                     <view class="item-ee-nickname">查看接单人</view>
                   </view>
                 </block>
                 <view class="item-operate ">
-                  <block wx:if="{{order.status=='0'}}">
+                  <block wx:if="{{order.status=='0' || order.status=='4'}}">
                      <button class="btn-reply cc" data-id="{{order.id}}" hover-class="btn-reply-selected" catchtap="showReplyDialog">取消</button> 
                   </block>
                   <view class="item-tip"></view> 

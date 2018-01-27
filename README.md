@@ -87,5 +87,5 @@
 - startTime
 - duration
 - price
-- status // 订单状态 0需求 1派人 2接单 3完成
+- status // 订单状态 0需求 1派人 2接单 3完成 4已取消
 - time

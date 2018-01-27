@@ -1,0 +1,55 @@
+/* pages/help/help.wxss */
+page{
+    height: 100%;
+    background-color: #fff;
+}
+.page{
+   font-family:  "PingFang SC","Microsoft YaHei",Arial,sans-serif; 
+   background-color: #fff;
+    height: 100%;
+    padding: 16rpx;
+}
+
+image,view{
+  /* border:1px #f00 solid; */
+}
+
+.form-item-p-label{
+  color:#333;
+  font-size: 14px;
+}
+
+.form-item-p-val{
+  color:#333;
+  font-size: 14px;
+  padding: 10rpx 0;
+}
+
+.text-area{
+  width: 100%;
+  height: 200rpx;
+  background-color: #f5f5f5;
+  border: 2rpx #e0e0e0 solid;
+  border-radius: 6rpx;
+  padding: 16rpx;
+}
+
+
+.form-submit{
+  width: 100%;
+  height: 80rpx;
+  background-color: #b39ddb;  
+  color: #ffffff;
+  font-size: 16px;
+  margin: 30rpx 0;
+  padding: 20rpx 0; 
+  border-radius: 8rpx;
+  display: inline-flex; 
+  align-items: center;
+  opacity: 1.0;
+}
+
+.form-submit-hover{
+  background-color: #b39ddb;    
+  opacity: 0.8;
+}

@@ -53,6 +53,7 @@ Page({
     api.takeOrder(data, function (res) {
       if (res.data.code == 0) {
         util.showToast('接单成功');
+        that.loadData(); 
       } else {
         util.showToast('接单失败');
       }

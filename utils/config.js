@@ -31,6 +31,12 @@ var api_get_one_demand = appPath + '/api/order/oneDemand';
 var api_post_take_order = appPath + '/api/order/take'
 var api_get_my_publish = appPath + '/api/order/myPublish';
 var api_post_cancel_publish = appPath + '/api/order/cancelPublish';
+var api_get_my_yuyue = appPath + '/api/order/myYuyue';
+var api_get_my_order = appPath + '/api/order/myOrder';
+var api_post_cancel_order = appPath + '/api/order/cancelOrder';
+var api_post_admin_login = appPath + '/api/admin/login';
+var api_get_all_employer = appPath + '/api/employer/all';
+var api_post_verify_employer = appPath + '/api/employer/verify';
 
 var api_get_all_product=appPath+'/api/product/all';
 var api_get_hot_product=appPath+'/api/product/hot';
@@ -68,6 +74,10 @@ module.exports = {
     img220:img220,
     img800:img800,
 
+    // ------------admin-------------
+    api_post_admin_login,
+    api_get_all_employer,
+
     api_get_all_employee,
     api_get_one_employee,
     api_get_one_uid,
@@ -84,6 +94,7 @@ module.exports = {
     api_get_one_demand,
     api_post_take_order,
     api_get_my_publish,
+    api_post_verify_employer,
 
     api_get_all_product,
     api_get_hot_product,
@@ -97,6 +108,9 @@ module.exports = {
     api_get_all_book,
     api_cancel_one_book,
     api_post_cancel_publish,
+    api_get_my_yuyue,
+    api_get_my_order,
+    api_post_cancel_order,
  
     api_upload_license,
     api_upload_storePhoto,

@@ -91,16 +91,14 @@ function getUserStatus() {
 
 
 // 获取店家信息
-function getOneEmployer(su) {
+function getOneEmployer(data, su) {
   util.showLoading('请稍等');
   var url = config.api_get_one_employer;
   wx.request({
     url: url,
     method: 'GET',
     dataType: 'json',
-    data: {
-      uid: util.getUID()
-    },
+    data: data,
     success: su,
     fail: function () {
       util.showModal('网络异常');
@@ -406,6 +404,88 @@ function cancelPublish(data, su) {
   })
 }
 
+// 获取我的预约
+function getMyYuyue(su) {
+  util.showLoading('请稍等');
+  var url = config.api_get_my_yuyue;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: {
+      uid: util.getUID()
+    },
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+// 获取我的订单
+function getMyOrder(su) {
+  util.showLoading('请稍等');
+  var url = config.api_get_my_order;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: {
+      uid: util.getUID()
+    },
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+// 取消订单
+function cancelOrder(data, su) {
+  util.showLoading('提交中');
+  var url = config.api_post_cancel_order;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+// 审核店家
+function verifyEmployer(data, su){
+  util.showLoading('提交中');
+  var url = config.api_post_verify_employer;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
 /**
  * 发送pv
  */
@@ -443,6 +523,10 @@ module.exports={
   takeOrder,
   getMyPublish,
   cancelPublish,
+  getMyYuyue,
+  getMyOrder,
+  cancelOrder,
+  verifyEmployer,
 
   sendPv:sendPv,
   // getAllBook:getAllBook,

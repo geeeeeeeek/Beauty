@@ -18,7 +18,7 @@
     flex-direction: row;
     margin: 0 30rpx;
     padding:30rpx 0;
-    border-bottom: 1rpx #26a69a solid;
+    border-bottom: 1rpx #dbc5ba solid;
 }
 .top-left{
     flex:1;

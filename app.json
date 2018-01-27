@@ -1,29 +1,33 @@
 {
-  "pages":[
-    "pages/employee/employee",    
+  "pages": [
+    "admin/employer/employer",
+    "admin/main/main",
+    "pages/help/help",
+    "pages/employee/employee",
     "pages/demand/demand",
-    "pages/my/my",   
+    "pages/my/my",
     "pages/eeAuth/eeAuth",
     "pages/chooseSkill/chooseSkill",
-    "pages/myYuyue/myYuyue",
-    "pages/erAuth/erAuth", 
-    "pages/myPublish/myPublish", 
-    "pages/eeDetail/eeDetail",    
-    "pages/yuyueEdit/yuyueEdit",
+    "pages/erAuth/erAuth",
+    "pages/myPublish/myPublish",
     "pages/myOrder/myOrder",
+    "pages/myYuyue/myYuyue",
+    "pages/eeDetail/eeDetail",
+    "pages/yuyueEdit/yuyueEdit",
     "pages/demandDetail/demandDetail",
     "pages/demandEdit/demandEdit",
     "pages/index/index",
     "pages/order/orderAddress",
     "pages/order/orderProducts",
     "pages/product/product",
-    "pages/myAddress/myAddress"
+    "pages/myAddress/myAddress",
+    "admin/erAuth/erAuth"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#b39ddb", 
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#b39ddb",
     "navigationBarTitleText": "丽人服务预约",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#616161",
@@ -45,10 +49,11 @@
       },
       {
         "pagePath": "pages/my/my",
-        "iconPath": "images/icon_my.png", 
+        "iconPath": "images/icon_my.png",
         "selectedIconPath": "images/icon_my_selected.png",
         "text": "我的"
-      }]
+      }
+    ]
   },
-  "debug":false
+  "debug": false
 }

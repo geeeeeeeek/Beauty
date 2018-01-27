@@ -53,6 +53,15 @@ function checkUserInfoAuth(su){
   })
 }
 
+// 后台登录状态
+function setAdminLogined(logined){
+  wx.setStorageSync('adminLogined', logined);
+}
+
+function getAdminLogined(){
+  return wx.getStorageSync('adminLogined');
+}
+
 // 上传文件
 function uploadFile(url, su){
   wx.chooseImage({
@@ -234,6 +243,8 @@ module.exports = {
   getEeStatus: getEeStatus,
   setEeStatus: setEeStatus,
   checkUserInfoAuth: checkUserInfoAuth,
+  setAdminLogined: setAdminLogined,
+  getAdminLogined: getAdminLogined,
   uploadFile: uploadFile,
   formatTime: formatTime,
   formatTime2: formatTime2,
