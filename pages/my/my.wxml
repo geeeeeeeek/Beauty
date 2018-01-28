@@ -87,4 +87,12 @@
       </view>
   </view>
 
+
+  <view class="page-item vc">
+    <view class="item-name" bindtap='myAdminClick'>后台管理</view>
+      <view class="vc">
+          <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+      </view>
+  </view>
+
 </view>

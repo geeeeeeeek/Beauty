@@ -113,5 +113,11 @@ Page({
       wx.navigateTo({
         url: '../help/help',
       })
+    },
+
+    myAdminClick: function(){
+      wx.navigateTo({
+        url: '../../admin/main/main',
+      })
     }
 })

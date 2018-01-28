@@ -17,7 +17,8 @@
     </view>
   </form>
 
-  <view>
+  <view class="{{funcVisible}}">
+    <view class="top">你好，管理员! <text class="top-logout" bindtap='logout'> 登出 </text></view>
     <view class="page-item vc" bindtap='item1Click'>
       <view class="item-name">店家管理</view>
         <view class="vc">

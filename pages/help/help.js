@@ -1,66 +1,60 @@
-// pages/help/help.js
+var util = require('../../utils/util.js')
+var config = require('../../utils/config.js')
+var api = require('../../utils/api.js')
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
+ 
   data: {
-  
+    name: '',
+    phone: '',
+    content: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+ 
   onLoad: function (options) {
   
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  nameChange: function (e) {
+    this.setData({
+      name: e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  phoneChange: function (e) {
+    this.setData({
+      phone: e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  contentChange: function (e) {
+    this.setData({
+      content: e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  commit: function(){
+    var that = this;
+    setTimeout(function(){
+      var name = that.data.name;
+      var phone = that.data.phone;
+      var content = that.data.content;
+      if (content == '' || name == '' || phone == ''){
+        util.showModal('不能为空');
+        return;
+      }
+      var data = new Array();
+      data.name = name;
+      data.phone = phone;
+      data.content = content;
+      api.commitAdvise(data, function(res){
+        if(res.data.code == 0){
+          util.showToast('提交成功');
+          wx.navigateBack();
+        }else{
+          util.showToast('提交失败');
+        }
+      });
+    }, 300);
+    
   }
 })

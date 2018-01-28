@@ -16,6 +16,18 @@ image,view{
   color:#f00;
 }
 
+.top{
+  font-size: 16px;
+  color: #333;
+  margin: 16rpx;
+  text-align: right;
+}
+
+.top-logout{
+  font-size: 16px;
+  color: #4B0082;
+  text-decoration: underline;
+}
 
 .form-item{
   background-color: #fff;

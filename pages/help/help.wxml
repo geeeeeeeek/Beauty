@@ -1,12 +1,23 @@
 <!--pages/help/help.wxml-->
 <view class="page"> 
+    <view class="form-item vc">
+      <view class="form-item-label">姓名</view>
+      <view class="form-item-val">
+        <input class="form-item-input" name='name' placeholder="请输入姓名" value="" maxlength="26" type="text" bindblur='nameChange'/>
+      </view>
+    </view>
+    <view class="form-item vc">
+      <view class="form-item-label">联系方式</view>
+      <view class="form-item-val">
+        <input class="form-item-input" name='phone' placeholder="请输入联系方式" value="" maxlength="26" type="text" bindblur='phoneChange'/>
+      </view>
+    </view>
     <view class="form-item-p">
-      <view class="form-item-p-label">意见反馈</view>
       <view class="form-item-p-val vc">
-        <textarea class="text-area" name="introduce" placeholder="请写下您的意见~ " maxlength="140" bindblur="introduceChange" value="{{employer.introduce}}"/>
+        <textarea class="text-area" name="content" placeholder="如果在使用过程中，遇到任何问题，请告诉我们，谢谢~ " maxlength="100" bindblur="contentChange" value=""/>
       </view>
     </view>
     <view class="cc">
-      <button formType="submit" class="form-submit cc" hover-class="form-submit-hover">提交</button>
+      <button bindtap='commit' class="form-submit cc" hover-class="form-submit-hover">提交</button>
     </view>
 </view>

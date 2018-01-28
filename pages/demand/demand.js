@@ -42,9 +42,26 @@ Page({
   }, 
 
   bindTakeOrderClick: function (e) {
-    var that = this;
     var ds = e.currentTarget.dataset;
-    var id = ds.id;
+    this.showConfirmDialog(ds.id);
+  },
+
+  showConfirmDialog: function(id){
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      showCancel: 'true',
+      content: '确认接单？',
+      success: function(res){
+        if (res.confirm) {
+          that.takeOrder(id);
+        }
+      }
+    })
+  },
+
+  takeOrder: function(id){
+    var that = this;
     var uid = util.getUID();
     var data = new Array();
     data.id = id;
@@ -53,7 +70,7 @@ Page({
     api.takeOrder(data, function (res) {
       if (res.data.code == 0) {
         util.showToast('接单成功');
-        that.loadData(); 
+        that.loadData();
       } else {
         util.showToast('接单失败');
       }

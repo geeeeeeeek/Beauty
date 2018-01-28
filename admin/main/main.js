@@ -5,7 +5,8 @@ var util = require('../../utils/util.js')
 Page({
  
   data: {
-    loginVisible: ''
+    loginVisible: '',
+    funcVisible: ''
   }, 
 
   onLoad: function (options) {
@@ -17,7 +18,13 @@ Page({
     var adminLogined = util.getAdminLogined();
     if (adminLogined && adminLogined == '1') {
       this.setData({
-        loginVisible: 'hide'
+        loginVisible: 'hide',
+        funcVisible: ''
+      })
+    }else{
+      this.setData({
+        loginVisible: '',
+        funcVisible: 'hide'
       })
     }
   },
@@ -57,6 +64,11 @@ Page({
       return false;
     }
     return true;
+  },
+
+  logout: function(){
+    util.setAdminLogined('0');
+    this.checkLogin();
   },
 
   item1Click: function () {

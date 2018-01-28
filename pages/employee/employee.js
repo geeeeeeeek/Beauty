@@ -9,15 +9,19 @@ Page({
     },
 
     onLoad:function(){ 
-        var that = this;
-        // 登录 
-        if(!util.getUID()){
-          util.checkUserInfoAuth(function () {
-            api.login();
-          })
-        }else{
-          that.loadData();
-        } 
+       
+    },
+
+    onShow: function(){
+      var that = this;
+      // 登录 
+      if (!util.getUID()) {
+        util.checkUserInfoAuth(function () {
+          api.login();
+        })
+      } else {
+        that.loadData();
+      } 
     },
 
     loadData: function(){

@@ -1,5 +1,5 @@
-// var appPath='https://beauty.wxfont.com';
-var appPath='http://localhost:8080';
+var appPath='https://beauty.wxfont.com';
+// var appPath='http://localhost:8080';
 
 //图片资源
 var baseAvatar = appPath+'/upload/avatar/';
@@ -39,6 +39,7 @@ var api_get_all_employer = appPath + '/api/employer/all';
 var api_post_verify_employer = appPath + '/api/employer/verify';
 var api_post_verify_employee = appPath + '/api/employee/verify';
 var api_get_all_order = appPath + '/api/order/allOrder';
+var api_post_commit_advise = appPath + '/api/help/commitAdvise';
 
 var api_get_all_product=appPath+'/api/product/all';
 var api_get_hot_product=appPath+'/api/product/hot';
@@ -99,6 +100,7 @@ module.exports = {
     api_post_verify_employer,
     api_post_verify_employee,
     api_get_all_order,
+    api_post_commit_advise,
 
     api_get_all_product,
     api_get_hot_product,

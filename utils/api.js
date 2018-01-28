@@ -586,6 +586,27 @@ function getAllEmployee(data, su) {
   })
 } 
 
+//提交建议
+function commitAdvise(data, su){
+  util.showLoading('请稍等');
+  var url = config.api_post_commit_advise;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      // util.hideLoading();
+    }
+  })
+}
+
 /**
  * 发送pv
  */
@@ -632,6 +653,7 @@ module.exports={
   verifyEmployer,
   verifyEmployee,
   getAllOrder,
+  commitAdvise,
 
   sendPv:sendPv,
   // getAllBook:getAllBook,
