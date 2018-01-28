@@ -81,7 +81,7 @@
 
 
   <view class="page-item vc">
-    <view class="item-name">帮助与客服</view>
+    <view class="item-name" bindtap='myHelpClick'>帮助与客服</view>
       <view class="vc">
           <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
       </view>

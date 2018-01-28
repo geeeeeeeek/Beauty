@@ -1,4 +1,4 @@
-var api = require('../../utils/admin.js')
+var api = require('../../utils/api.js')
 var config = require('../../utils/config.js')
 var util = require('../../utils/util.js')
 
@@ -12,6 +12,7 @@ Page({
     this.checkLogin();
   }, 
 
+  //后台是否登录
   checkLogin: function(){
     var adminLogined = util.getAdminLogined();
     if (adminLogined && adminLogined == '1') {
@@ -60,16 +61,20 @@ Page({
 
   item1Click: function () {
     wx.navigateTo({
-      url: '../employer/employer.js',
+      url: '../employer/employer',
     })
   },
 
   item2Click: function () {
-
+    wx.navigateTo({
+      url: '../employee/employee',
+    })
   },
 
   item3Click: function () {
-
+    wx.navigateTo({
+      url: '../order/order',
+    })
   },
 
 })

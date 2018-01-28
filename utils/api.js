@@ -110,24 +110,24 @@ function getOneEmployer(data, su) {
 }
 
 // 获取技师列表
-function getAllEmployee(su){
-  util.showLoading();
-  var url = config.api_get_all_employee;
-  wx.request({
-    url: url,
-    method: 'GET',
-    data: {
-      uid: util.getUID()
-    },
-    success: su,
-    fail: function () {
-      util.showFailModal();
-    },
-    complete: function () {
-      util.hideLoading();
-    }
-  })
-}
+// function getAllEmployee(su){
+//   util.showLoading();
+//   var url = config.api_get_all_employee;
+//   wx.request({
+//     url: url,
+//     method: 'GET',
+//     data: {
+//       uid: util.getUID()
+//     },
+//     success: su,
+//     fail: function () {
+//       util.showFailModal();
+//     },
+//     complete: function () {
+//       util.hideLoading();
+//     }
+//   })
+// }
 
 // 获取技师详情
 function getEmployeeById(eeUid, su){
@@ -478,6 +478,46 @@ function verifyEmployer(data, su){
     data: data,
     success: su,
     fail: function () {
+      util.showModal('网络异常');
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+
+// 审核技师
+function verifyEmployee(data, su) {
+  util.showLoading('提交中');
+  var url = config.api_post_verify_employee;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showModal('网络异常');
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+// all订单
+function getAllOrder(data, su){
+  util.showLoading('请稍等');
+  var url = config.api_get_all_order;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: data,
+    success: su,
+    fail: function () {
       util.showFailModal();
     },
     complete: function () {
@@ -485,6 +525,66 @@ function verifyEmployer(data, su){
     }
   })
 }
+
+
+// loginAdmin
+function loginAdmin(data, su) {
+  util.showLoading('请稍等');
+  var url = config.api_post_admin_login;
+  wx.request({
+    url: url,
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+
+// 所有店家
+function getAllEmployer(data, su) {
+  util.showLoading('请稍等');
+  var url = config.api_get_all_employer;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+}
+
+
+// 所有技师
+function getAllEmployee(data, su) {
+  util.showLoading('请稍等');
+  var url = config.api_get_all_employee;
+  wx.request({
+    url: url,
+    method: 'GET',
+    data: data,
+    success: su,
+    fail: function () {
+      util.showFailModal();
+    },
+    complete: function () {
+      util.hideLoading();
+    }
+  })
+} 
 
 /**
  * 发送pv
@@ -505,6 +605,9 @@ function sendPv(id,su){
 
 
 module.exports={
+  loginAdmin: loginAdmin,
+  getAllEmployer: getAllEmployer,
+
   login: login,
   getUID: getUID,
   getUserStatus,
@@ -527,6 +630,8 @@ module.exports={
   getMyOrder,
   cancelOrder,
   verifyEmployer,
+  verifyEmployee,
+  getAllOrder,
 
   sendPv:sendPv,
   // getAllBook:getAllBook,

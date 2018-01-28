@@ -1,11 +1,17 @@
 {
   "pages": [
-    "admin/employer/employer",
-    "admin/main/main",
-    "pages/help/help",
+    
     "pages/employee/employee",
     "pages/demand/demand",
     "pages/my/my",
+    "pages/help/help",
+
+"admin/main/main",
+"admin/order/order",
+"admin/employee/employee",
+"admin/eeAuth/eeAuth",
+"admin/employer/employer",
+
     "pages/eeAuth/eeAuth",
     "pages/chooseSkill/chooseSkill",
     "pages/erAuth/erAuth",

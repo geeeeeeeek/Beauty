@@ -19,13 +19,13 @@
 
   <view>
     <view class="page-item vc" bindtap='item1Click'>
-      <view class="item-name">技师管理</view>
+      <view class="item-name">店家管理</view>
         <view class="vc">
             <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
         </view>
     </view>
     <view class="page-item vc" bindtap='item2Click'>
-      <view class="item-name">店家管理</view>
+      <view class="item-name">技师管理</view>
         <view class="vc">
             <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
         </view>

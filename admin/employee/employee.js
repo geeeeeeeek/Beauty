@@ -3,35 +3,36 @@ var config = require('../../utils/config.js')
 var util = require('../../utils/util.js')
 
 Page({
- 
+
   data: {
-    employers: []
+    employees: []
   },
 
-  onShow: function (){
+  onShow: function () {
     this.loadData();
   },
 
-  loadData: function(){
+  loadData: function () {
     var that = this;
     var data = new Array();
     data.uid = util.getUID();
     data.sign = util.getSign();
-    api.getAllEmployer(data, function(res){
-      if(res.data.code == 0){
+    api.getAllEmployee(data, function (res) {
+      console.log(res.data);
+      if (res.data.code == 0) {
         that.setData({
-          employers: res.data.employers
+          employees: res.data.employees
         })
-      }else{
+      } else {
         util.showToast('暂无数据');
       }
     })
   },
 
-  itemClick: function(e){
+  itemClick: function (e) {
     var ds = e.currentTarget.dataset;
     wx.navigateTo({
-      url: '../erAuth/erAuth?id=' + ds.id
+      url: '../eeAuth/eeAuth?id=' + ds.id
     })
   }
 })

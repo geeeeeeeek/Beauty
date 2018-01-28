@@ -3,7 +3,7 @@
       <block wx:for="{{employees}}" wx:for-item="employee" wx:key="uid">
         <view class="list-item" data-id="{{employee.uid}}"  bindtap="itemClick">
             <view class="list-item-left">
-                <image class="list-item-left-icon" src="{{baseAvatar}}{{employee.avatar}}?version={{version}}"></image>
+                <image class="list-item-left-icon" src="{{baseAvatar}}{{employee.avatar}}"></image>
             </view>
             <view class="list-item-right">
                 <view class="item-name">{{employee.nickName}}</view>

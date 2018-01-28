@@ -107,5 +107,11 @@ Page({
       wx.navigateTo({
         url: '../myOrder/myOrder',
       })
+    },
+
+    myHelpClick: function(){
+      wx.navigateTo({
+        url: '../help/help',
+      })
     }
 })

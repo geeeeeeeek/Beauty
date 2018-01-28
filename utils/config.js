@@ -37,6 +37,8 @@ var api_post_cancel_order = appPath + '/api/order/cancelOrder';
 var api_post_admin_login = appPath + '/api/admin/login';
 var api_get_all_employer = appPath + '/api/employer/all';
 var api_post_verify_employer = appPath + '/api/employer/verify';
+var api_post_verify_employee = appPath + '/api/employee/verify';
+var api_get_all_order = appPath + '/api/order/allOrder';
 
 var api_get_all_product=appPath+'/api/product/all';
 var api_get_hot_product=appPath+'/api/product/hot';
@@ -95,6 +97,8 @@ module.exports = {
     api_post_take_order,
     api_get_my_publish,
     api_post_verify_employer,
+    api_post_verify_employee,
+    api_get_all_order,
 
     api_get_all_product,
     api_get_hot_product,

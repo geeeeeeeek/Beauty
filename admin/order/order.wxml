@@ -1,0 +1,30 @@
+<view class="page">
+  <block wx:for="{{orders}}" wx:for-item="order" wx:key="id">
+    <view class="list-item" >
+        <view class="list-item-top vc">
+            <view class="top-left">{{order.storeName}}{{order.nickName}}</view>
+            <view class="top-right">订单号 {{order.time}}</view>
+        </view>
+        <view class="list-item-bottom">
+            <view class="list-item-left"> 
+                <image class="list-item-left-icon" src="http://p3.pstatp.com/origin/40330002390297c1a730"></image>
+            </view>
+                <view class="list-item-right"> 
+                <view class="item-name ">{{order.title}}</view> 
+                <view class="item-time">预约时间：{{order.startTime}}</view> 
+                <view class="item-time">价格：{{order.price}}元</view> 
+                <view class="item-time">时长：{{order.duration}}分钟</view> 
+                <view class="item-time">地址：{{order.region}}{{order.address}}</view> 
+            </view>
+        </view>
+    </view>
+  </block>
+  
+    <block wx:if="{{books.length==0}}">
+        <view class="tip cc">
+        暂无预约
+        </view>
+    </block>
+   
+
+  </view>

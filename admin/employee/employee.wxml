@@ -1,0 +1,15 @@
+<!--admin/employer/employer.wxml-->
+<view class="page">
+ <block wx:for="{{employees}}" wx:for-item="employee" wx:key="">
+    <view data-id="{{employee.uid}}" class="page-item vc" bindtap='itemClick'>
+      <view class="item-name">{{employee.name}}</view>
+      <view class="item-auth">
+        <block wx:if="{{employee.status == '3'}}">已认证</block>
+        <block wx:else>未认证</block>
+      </view>
+        <view class="vc">
+            <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
+        </view>
+    </view> 
+  </block>
+</view>
