@@ -1,5 +1,5 @@
-// var appPath='https://beauty.wxfont.com';
-var appPath='http://localhost:8080';
+var appPath='https://beauty.wxfont.com';
+// var appPath='http://localhost:8080';
 
 //图片资源
 var baseAvatar = appPath+'/upload/avatar/';
