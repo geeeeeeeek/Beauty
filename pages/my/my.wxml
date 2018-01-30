@@ -18,7 +18,7 @@
 
   <view class="page-overview">
     <view class="page-overview-left cc">
-      <text class="page-overview-val">10</text>
+      <text class="page-overview-val">0</text>
       <text class="page-overview-label">业务</text>
     </view>
     <view class="page-overview-right cc">
@@ -80,16 +80,16 @@
   </block>
 
 
-  <view class="page-item vc">
-    <view class="item-name" bindtap='myHelpClick'>帮助与客服</view>
+  <view class="page-item vc" bindtap='myHelpClick'>
+    <view class="item-name">帮助与客服</view>
       <view class="vc">
           <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
       </view>
   </view>
 
 
-  <view class="page-item vc">
-    <view class="item-name" bindtap='myAdminClick'>后台管理</view>
+  <view class="page-item vc" bindtap='myAdminClick'>
+    <view class="item-name">后台管理</view>
       <view class="vc">
           <image src="/images/icon_rightgo.png" mode="scaleToFill" class="p-icon" />
       </view>

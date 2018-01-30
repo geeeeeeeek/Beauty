@@ -20,6 +20,7 @@ image,view{
   font-size: 16px;
   color: #333;
   margin: 16rpx;
+  margin-bottom: 60rpx;
   text-align: right;
 }
 

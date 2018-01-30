@@ -569,13 +569,12 @@ function getAllEmployer(data, su) {
 
 
 // 所有技师
-function getAllEmployee(data, su) {
+function getAllEmployee(su) {
   util.showLoading('请稍等');
   var url = config.api_get_all_employee;
   wx.request({
     url: url,
     method: 'GET',
-    data: data,
     success: su,
     fail: function () {
       util.showFailModal();

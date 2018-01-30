@@ -14,10 +14,7 @@ Page({
 
   loadData: function () {
     var that = this;
-    var data = new Array();
-    data.uid = util.getUID();
-    data.sign = util.getSign();
-    api.getAllEmployee(data, function (res) {
+    api.getAllEmployee(function (res) {
       console.log(res.data);
       if (res.data.code == 0) {
         that.setData({

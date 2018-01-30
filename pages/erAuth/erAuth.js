@@ -4,6 +4,7 @@ var api = require('../../utils/api.js')
 
 Page({
   data: {
+    page: '',
     baseLicenseUrl: config.baseLicenseUrl,
     baseStoreUrl: config.baseStoreUrl,
     employer: {
@@ -40,7 +41,21 @@ Page({
     }
 
     console.log("-->" + util.getUID());
-    api.getOneEmployer(function(res){
+
+    this.loadData();
+  },
+
+  onHide: function(){
+    api.getUserStatus();
+  },
+
+  loadData: function(){
+    var that = this;
+    var data = new Array();
+    data.uid = util.getUID();
+    data.sign = util.getSign();
+    data.erUid = util.getUID();
+    api.getOneEmployer(data, function (res) {
       // get data
       var employer = res.data.employer;
       // 如果为空,返回
@@ -49,10 +64,10 @@ Page({
       }
 
       // string转数组
-      if(employer.region && employer.region.length > 0){
+      if (employer.region && employer.region.length > 0) {
         var regionStr = employer.region;
         employer.region = regionStr.split(",");
-      }else{
+      } else {
         employer.region = new Array('广东省', '广州市', '天河区');
       }
 
@@ -126,6 +141,7 @@ Page({
     formData.regionStr = employer.region.join(",");
     // 设置form的主键 
     formData.uid = util.getUID();
+    formData.type = that.data.page;
     
     api.commitEmployer(formData, function(res){
         console.log(res.data)

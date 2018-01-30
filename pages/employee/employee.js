@@ -9,7 +9,7 @@ Page({
     },
 
     onLoad:function(){ 
-       
+       this.loadData();
     },
 
     onShow: function(){
@@ -19,17 +19,12 @@ Page({
         util.checkUserInfoAuth(function () {
           api.login();
         })
-      } else {
-        that.loadData();
-      } 
+      }
     },
 
     loadData: function(){
       var that = this;
-      var data = new Array();
-      data.uid = util.getUID();
-      data.sign = util.getSign();
-      api.getAllEmployee(data, function (res) {
+      api.getAllEmployee(function (res) {
         util.printObj("employees", res.data);
 
         that.setData({

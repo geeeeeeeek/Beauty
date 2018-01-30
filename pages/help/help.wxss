@@ -16,7 +16,7 @@ image,view{
 
 
 .form-item{
-  padding: 20rpx 20rpx;
+  padding: 20rpx 10rpx;
   display: flex;
   flex-direction: row;
 }
@@ -47,7 +47,7 @@ image,view{
 .form-item-p-val{
   color:#333;
   font-size: 14px;
-  padding: 10rpx 20rpx;
+  padding: 10rpx 0rpx;
 }
 
 .text-area{
@@ -66,7 +66,7 @@ image,view{
   background-color: #b39ddb;  
   color: #ffffff;
   font-size: 16px;
-  margin: 30rpx 20rpx;
+  margin: 30rpx 10rpx;
   padding: 20rpx 0; 
   border-radius: 8rpx;
   display: inline-flex; 

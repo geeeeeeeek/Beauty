@@ -4,6 +4,7 @@ var api = require('../../utils/api.js')
 
 Page({
   data: {
+    page: '',
     baseCardPUrl: config.baseCardPUrl,
     baseCardNUrl: config.baseCardNUrl,
     baseAvatarUrl: config.baseAvatarUrl,
@@ -103,6 +104,10 @@ Page({
       })
     }
   },
+  
+  onHide: function () {
+    api.getUserStatus();
+  },
 
   // --------------提交----------------
   formSubmit: function (e) {
@@ -120,6 +125,7 @@ Page({
     // 设置form的主键 
     formData.uid = util.getUID();
     formData.sign = util.getSign();
+    formData.type = that.data.type;
 
     api.authEmployee(formData, function (res) {
       console.log(res.data)
