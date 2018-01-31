@@ -9,11 +9,12 @@ Page({
     },
 
     onLoad:function(){ 
-       this.loadData();
+       
     },
 
     onShow: function(){
       var that = this;
+      that.loadData();
       // 登录 
       if (!util.getUID()) {
         util.checkUserInfoAuth(function () {
@@ -25,11 +26,12 @@ Page({
     loadData: function(){
       var that = this;
       api.getAllEmployee(function (res) {
-        util.printObj("employees", res.data);
-
-        that.setData({
-          employees: res.data.employees
-        })
+        console.log(res.data)
+        if(res.data.code == 0){
+          that.setData({
+            employees: res.data.employees
+          })
+        }
 
         // 处理skill数据
         that.handleSkillTag();

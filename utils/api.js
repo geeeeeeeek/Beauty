@@ -193,7 +193,6 @@ function authEmployee(data, su) {
 
 // 所有需求
 function getAllDemand(su){
-  util.showLoading();
   var url = config.api_get_all_demand;
   wx.request({
     url: url,
@@ -213,7 +212,7 @@ function getAllDemand(su){
 
 // 获取所有技能
 function getAllSkill(su) {
-  util.showLoading();
+  util.showLoading('请稍等...');
   var url = config.api_get_all_skill;
   wx.request({
     url: url,

@@ -27,9 +27,11 @@ Page({
     var that = this;
     api.getAllDemand(function (res) {
       console.log(res.data)
-      that.setData({
-        demands: res.data.demands
-      })
+      if(res.data.code == 0){
+        that.setData({
+          demands: res.data.demands
+        })
+      }
     })
   },
 
