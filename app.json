@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+    "pages/index/index",
     "pages/employee/employee",
     "pages/demand/demand",
     "pages/my/my",
@@ -21,8 +21,7 @@
     "pages/eeDetail/eeDetail",
     "pages/yuyueEdit/yuyueEdit",
     "pages/demandDetail/demandDetail",
-    "pages/demandEdit/demandEdit",
-    "pages/index/index",
+    "pages/demandEdit/demandEdit", 
     "pages/order/orderAddress",
     "pages/order/orderProducts",
     "pages/product/product",
@@ -41,6 +40,12 @@
     "borderStyle": "black",
     "backgroundColor": "#f0f0f0",
     "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon_index.png",
+        "selectedIconPath": "images/icon_index_selected.png",
+        "text": "首页"
+      },
       {
         "pagePath": "pages/employee/employee",
         "iconPath": "images/icon_beauty.png",
