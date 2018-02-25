@@ -1,11 +1,13 @@
 <!--index.wxml-->
 <view class="page">
    
-   <view>
-   美容师
-   </view>
-   <view>
-   抢订单
+   <view class="func cc">
+    <view class="tab1 cc" bindtap='clickTab1'>
+    美容师
+    </view>
+    <view class="tab2 cc" bindtap='clickTab2'>
+    去接单
+    </view>
    </view>
 
 </view>
