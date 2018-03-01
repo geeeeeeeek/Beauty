@@ -1,6 +1,16 @@
 <!--index.wxml-->
 <view class="page">
-   
+  <view class="page-header">  
+      <swiper autoplay='true'> 
+          <swiper-item> 
+                <image src="../../images/test.jpg" mode="aspectFill" class="swiper-image"  />  
+          </swiper-item>   
+          <swiper-item> 
+                <image src="../../images/test.jpg" mode="aspectFill" class="swiper-image"  />  
+          </swiper-item>   
+      </swiper> 
+  </view>
+
    <view class="func cc">
     <view class="tab1 cc" bindtap='clickTab1'>
     美容师

@@ -10,8 +10,19 @@ view{
    /* border: 1rpx solid #b39ddb;  */
 }
 
+
+/**图片区**/
+.page-header{ 
+    position: relative;
+}
+
+.swiper-image{
+   width:100%; 
+   height: 100%; 
+}
+
 .func{ 
-  height: 100%;
+  height: 60%;
 }
 
 .tab1{

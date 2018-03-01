@@ -8,6 +8,13 @@ Page({
   data: {  
   }, 
 
+  onShareAppMessage: function () {
+    return {
+      title: '丽人服务',
+      path: '/pages/index/index'
+    }
+  },
+
   onLoad: function (options) {
     var that = this
  
